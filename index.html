@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="pt">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="author" content="Bruno" />
+    <meta name="description" content="Nova rede social da Tripleten" />
+    <meta name="keywords" content="Around The U.S." />
+
+    <title>Around The U.S.</title>
+    <link rel="stylesheet" href="./pages/index.css" />
+    <link rel="stylesheet" href="favicon.ico" />
+  </head>
+  <body class="body">
+    <div class="page">
+      <header class="header">
+        <img src="./images/header_title.jpg" alt="header title image" />
+        <div class="header__line"></div>
+      </header>
+      <main class="content">
+        <section class="profile">
+          <div class="profile__container">
+            <div class="profile__avatar">
+              <img
+                src="./images/profile_image.jpeg"
+                alt="profile image"
+                class="avatar__image"
+              />
+            </div>
+
+            <div class="profile__info">
+              <h2 class="profile__info_name" id="profile__info_name">
+                Jacques Cousteau
+              </h2>
+              <h3 class="profile__info_content" id="profile__info_content">
+                Explorador
+              </h3>
+            </div>
+            <button class="profile__info_edit-button">
+              <img
+                src="./images/edit_name.jpg"
+                alt="pencil image"
+                class="edit-button__image"
+              />
+            </button>
+
+            <button class="profile__add-button">
+              <img
+                src="./images/add__button_icon.jpg"
+                alt="add icon"
+                class="add-button__icon"
+              />
+            </button>
+          </div>
+        </section>
+        <section class="cards">
+          <div class="cards__container">
+            <div class="card">
+              <img
+                src="./images/vale_de_yosemite.jpeg"
+                alt=" vale de yosemite image"
+                class="card__image"
+              />
+              <div class="card__description-container">
+                <h2 class="card__description">Vale do Yosemite</h2>
+                <p class="card__like">&#9825;</p>
+              </div>
+            </div>
+            <div class="card">
+              <img
+                src="./images/lago_louise.jpeg"
+                alt=" Lago Louise image"
+                class="card__image"
+              />
+              <div class="card__description-container">
+                <h2 class="card__description">Vale do Yosemite</h2>
+                <p class="card__like">&#9825;</p>
+              </div>
+            </div>
+
+            <div class="card">
+              <img
+                src="./images/Montanhas_Care.jpeg"
+                alt=" Montanhas image"
+                class="card__image"
+              />
+              <div class="card__description-container">
+                <h2 class="card__description">Monstanhas care...</h2>
+                <p class="card__like">&#9825;</p>
+              </div>
+            </div>
+            <div class="card">
+              <img
+                src="./images/latemar.jpeg"
+                alt=" Latemar image"
+                class="card__image"
+              />
+              <div class="card__description-container">
+                <h2 class="card__description">Vale do Yosemite</h2>
+                <p class="card__like">&#9825;</p>
+              </div>
+            </div>
+            <div class="card">
+              <img
+                src="./images/Parque_Nacional_Vanoise.jpeg"
+                alt=" Parque Nacional Vanoise image"
+                class="card__image"
+              />
+              <div class="card__description-container">
+                <h2 class="card__description">Parque Nacional Vanoise</h2>
+                <p class="card__like">&#9825;</p>
+              </div>
+            </div>
+            <div class="card">
+              <img
+                src="./images/lago_louise.jpeg"
+                alt=" Lago di Braies image"
+                class="card__image"
+              />
+              <div class="card__description-container">
+                <h2 class="card__description">Lago di Braies</h2>
+                <p class="card__like">&#9825;</p>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+      <footer class="footer">© 2024 Around The U.S.</footer>
+      <form class="popup">
+        <span class="popup__close-button">x</span>
+        <div class="popup__container">
+          <div class="popup__opened">
+            <h2 class="popup__title">Editar perfil</h2>
+
+            <fieldset class="popup__name">
+              <input
+                type="text"
+                placeholder="Nome"
+                class="popup__name_insert"
+                id="popup__name_insert"
+              />
+            </fieldset>
+            <fieldset class="popup__aboutMe">
+              <input
+                type="text"
+                placeholder="Sobre mim"
+                class="popup__aboutMe_insert"
+                id="popup__aboutMe_insert"
+              />
+            </fieldset>
+            <button class="popup__saveBtn">Salvar</button>
+          </div>
+        </div>
+      </form>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>

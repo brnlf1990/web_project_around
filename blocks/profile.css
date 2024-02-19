@@ -1,0 +1,64 @@
+.profile {
+}
+
+.profile__container {
+  display: grid;
+  max-width: 880px;
+  margin: auto;
+  grid-template-columns: 20% 40% 10% 30%;
+  grid-template-rows: 25% 25% 25%;
+  padding-top: 40px;
+}
+
+.avatar__image {
+  width: 145px;
+  height: 145px;
+  border-radius: 50%;
+}
+
+.profile__info_name {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 42px;
+  line-height: 114%;
+}
+
+.profile__info_content {
+  grid-area: 2 / 3 / 2 / 3;
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 55%;
+}
+
+.profile__info_edit-button {
+  grid-area: 2 /3 / 2 / 3;
+  background-color: rgba(0, 0, 0, 1);
+  border: 1px solid #ffffff;
+  width: 24px;
+  height: 24px;
+}
+
+.edit-button__image {
+  width: 10px;
+  height: 10px;
+  padding: 0;
+}
+
+.profile__add-button {
+  grid-area: 2 / 4 / 2 / 4;
+  display: flex;
+  border: 2px solid #ffffff;
+  width: 150px;
+  height: 50px;
+  background-color: rgba(0, 0, 0, 1);
+  padding-left: 55px;
+  padding-top: 5px;
+  justify-self: end;
+}
+
+.add-button__icon {
+  background-position: center;
+}
