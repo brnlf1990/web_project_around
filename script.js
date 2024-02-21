@@ -1,5 +1,5 @@
 let profileContainer = document.querySelector(".profile__container");
-let editButton = profileContainer.querySelector(".profile__info_edit-button");
+let editButton = profileContainer.querySelector(".profile__info-edit-button");
 let popup = document.querySelector(".popup");
 let closeBtn = popup.querySelector(".popup__close-button");
 
@@ -16,14 +16,13 @@ function closePop(event) {
 function handleProfileFormSubmit(evt) {
   evt.preventDefault();
 
-  let nameInput = popup.querySelector(".popup__name_insert");
-  let jobInput = popup.querySelector(".popup__aboutMe_insert");
-
+  let nameInput = popup.querySelector(".popup__name-insert");
+  let jobInput = popup.querySelector(".popup__aboutMe-insert");
   let nameValue = nameInput.value;
   let jobInputValue = jobInput.value;
 
-  let name = profileContainer.querySelector(".profile__info_name");
-  let job = profileContainer.querySelector(".profile__info_content");
+  let name = profileContainer.querySelector(".profile__info-name");
+  let job = profileContainer.querySelector(".profile__info-content");
 
   name.textContent = nameValue;
   job.textContent = jobInputValue;

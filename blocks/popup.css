@@ -47,7 +47,7 @@
   color: white;
 }
 
-.popup__name_insert {
+.popup__name-insert {
   border: none;
   width: 358px;
   border-bottom: 1px solid rgba(0, 0, 0, 1);
@@ -114,27 +114,13 @@
     padding-bottom: 45px;
   }
 
-  .popup__name_insert {
+  .popup__name-insert {
     border: none;
     width: 238px;
     border-bottom: 1px solid rgba(0, 0, 0, 1);
     opacity: 0.2;
   }
 
-  .popup__aboutMe_insert {
-    border: none;
-    width: 238px;
-    border-bottom: 1px solid rgba(0, 0, 0, 1);
-    opacity: 0.2;
-  }
-  .popup__saveBtn {
-    width: 238px;
-    height: 46px;
-    align-items: center;
-    background-color: #000000;
-    color: white;
-    font-size: 14px;
-  }
   .popup__saveBtn:hover {
     background: #000000;
     opacity: 0.8;
