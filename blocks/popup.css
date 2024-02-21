@@ -12,7 +12,6 @@
   background: white;
   width: 430px;
   height: 330px;
-  box-shadow: 0px 0px 25px white;
   border-radius: 10px;
   z-index: 999;
 }
@@ -28,6 +27,7 @@
 
 .popup__name {
   border: none;
+  color: #000000;
 }
 
 .popup__aboutMe {
@@ -70,4 +70,74 @@
   max-width: 40px;
   max-height: 40px;
   cursor: pointer;
+}
+
+.popup__saveBtn:hover {
+  background: #000000;
+  opacity: 0.8;
+  border-radius: 2px;
+}
+
+@media screen and (min-width: 320px) and (max-width: 600px) {
+  .popup__container {
+    display: flex;
+    position: fixed;
+    top: 123px;
+    left: 19px;
+    flex-direction: row;
+    justify-content: center;
+    background: white;
+    width: 282px;
+    height: 322px;
+    border-radius: 10px;
+    z-index: 999;
+  }
+
+  .popup__close-button {
+    position: fixed;
+    top: 86px;
+    left: 278px;
+    color: white;
+    font-size: 40px;
+    max-width: 40px;
+    max-height: 40px;
+    cursor: pointer;
+  }
+
+  .popup__title {
+    font-style: normal;
+    font-weight: 900;
+    font-size: 24px;
+    line-height: 29px;
+    color: #000000;
+    padding-left: 15px;
+    padding-bottom: 45px;
+  }
+
+  .popup__name_insert {
+    border: none;
+    width: 238px;
+    border-bottom: 1px solid rgba(0, 0, 0, 1);
+    opacity: 0.2;
+  }
+
+  .popup__aboutMe_insert {
+    border: none;
+    width: 238px;
+    border-bottom: 1px solid rgba(0, 0, 0, 1);
+    opacity: 0.2;
+  }
+  .popup__saveBtn {
+    width: 238px;
+    height: 46px;
+    align-items: center;
+    background-color: #000000;
+    color: white;
+    font-size: 14px;
+  }
+  .popup__saveBtn:hover {
+    background: #000000;
+    opacity: 0.8;
+    border-radius: 2px;
+  }
 }
