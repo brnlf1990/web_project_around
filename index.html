@@ -154,32 +154,36 @@
         </section>
       </main>
       <footer class="footer">© 2024 Around The U.S.</footer>
-      <form class="popup">
-        <span class="popup__close-button">x</span>
-        <div class="popup__container">
-          <div class="popup__openned">
-            <h2 class="popup__title">Editar perfil</h2>
+      <div class="popup">
+        <div class="popup__hide" id="popup__fade"></div>
 
-            <fieldset class="popup__name">
-              <input
-                type="text"
-                placeholder="Nome"
-                class="popup__name-insert"
-                id="popup__name-insert"
-              />
-            </fieldset>
-            <fieldset class="popup__aboutMe">
-              <input
-                type="text"
-                placeholder="Sobre mim"
-                class="popup__aboutMe-insert"
-                id="popup__aboutMe-insert"
-              />
-            </fieldset>
-            <button class="popup__saveBtn">Salvar</button>
-          </div>
+        <div class="popup__hide" id="popup__opened">
+          <span class="popup__close-button"
+            ><img
+              src="./images/Close_Icon.png"
+              class="popup__close-image"
+              alt="close image"
+          /></span>
+          <h2 class="popup__title">Editar perfil</h2>
+          <form class="popup__form">
+            <input
+              type="text"
+              placeholder="Nome"
+              class="popup__name-insert"
+              id="popup__name-insert"
+            />
+
+            <input
+              type="text"
+              placeholder="Sobre mim"
+              class="popup__aboutMe-insert"
+              id="popup__aboutMe-insert"
+            />
+
+            <button type="submit" class="popup__submit-button">Salvar</button>
+          </form>
         </div>
-      </form>
+      </div>
     </div>
     <script src="script.js"></script>
   </body>

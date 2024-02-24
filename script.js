@@ -1,33 +1,41 @@
-let profileContainer = document.querySelector(".profile__container");
-let editButton = profileContainer.querySelector(".profile__info-edit-button");
-let popup = document.querySelector(".popup");
-let closeBtn = popup.querySelector(".popup__close-button");
+const editButton = document.querySelector(".profile__info-edit-button");
+const popup = document.querySelector("#popup__opened");
+const fade = document.querySelector("#popup__fade");
+const closeBtn = document.querySelector(".popup__close-button");
+const saveBtn = document.querySelector(".popup__submit-button");
+const formElement = document.querySelector(".popup__form");
+const profileName = document.querySelector(".profile__info-name");
+const about = document.querySelector(".profile__info-content");
+const nameInput = document.querySelector(".popup__name-insert");
+const aboutInput = document.querySelector(".popup__aboutMe-insert");
 
-function openedPop() {
-  popup.classList.add("popup__openned");
-  let page = document.querySelector(".page");
-}
+const togglePopup = () => {
+  popup.classList.toggle("popup__hide");
+  fade.classList.toggle("popup__hide");
 
-function closePop(event) {
-  if (event.target === closeBtn) {
-    popup.classList.remove("popup__openned");
+  if (!popup.classList.contains("popup__hide")) {
+    nameInput.value = profileName.textContent;
+    aboutInput.value = about.textContent;
   }
-}
-function handleProfileFormSubmit(evt) {
-  evt.preventDefault();
+};
 
-  let nameInput = popup.querySelector(".popup__name-insert");
-  let jobInput = popup.querySelector(".popup__aboutMe-insert");
-  let nameValue = nameInput.value;
-  let jobInputValue = jobInput.value;
+function handlerProfileFormSubmit(event) {
+  event.preventDefault();
 
-  let name = profileContainer.querySelector(".profile__info-name");
-  let job = profileContainer.querySelector(".profile__info-content");
+  const nameValue = nameInput.value;
+  const aboutInputValue = aboutInput.value;
 
-  name.textContent = nameValue;
-  job.textContent = jobInputValue;
+  profileName.textContent = nameValue;
+  about.textContent = aboutInputValue;
 }
 
-editButton.addEventListener("click", openedPop);
-popup.addEventListener("click", closePop);
-popup.addEventListener("submit", handleProfileFormSubmit);
+formElement.addEventListener("submit", (event) => {
+  if (nameInput.value.length > 0 && aboutInput.value.length > 0) {
+    handlerProfileFormSubmit(event);
+  } else {
+    alert("Os campos não podem ficar em branco.");
+  }
+});
+[editButton, saveBtn, closeBtn, fade].forEach((elementos) => {
+  elementos.addEventListener("click", togglePopup);
+});
