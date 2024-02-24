@@ -14,8 +14,8 @@ const togglePopup = () => {
   fade.classList.toggle("popup__hide");
 
   if (!popup.classList.contains("popup__hide")) {
-    nameInput.value = profileName.textContent;
-    aboutInput.value = about.textContent;
+    nameInput.value = profileName.textContent.trim();
+    aboutInput.value = about.textContent.trim();
   }
 };
 
