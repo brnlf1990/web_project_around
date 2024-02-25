@@ -135,19 +135,17 @@
     color: #000000;
     padding-right: 48%;
   }
-  .popup__submit-button {
-    width: 358px;
-    max-width: 85%;
-    height: 50px;
-    align-items: center;
-    background-color: #000000;
-    color: white;
-    font-size: 14px;
+
+  .popup__form {
+    display: flex;
+    height: 80%;
+    flex-direction: column;
+    justify-content: space-around;
   }
 
   .popup__name-insert {
     border: none;
-    width: 358px;
+    width: 75%;
     border-bottom: 1px solid rgba(0, 0, 0, 1);
     max-width: 85%;
     color: #000000;
@@ -155,9 +153,18 @@
 
   .popup__aboutMe-insert {
     border: none;
-    width: 358px;
+    width: 75%;
     border-bottom: 1px solid rgba(0, 0, 0, 1);
     color: #000000;
     max-width: 85%;
+  }
+  .popup__submit-button {
+    width: 80%;
+    max-width: 85%;
+    height: 50px;
+    align-items: center;
+    background-color: #000000;
+    color: white;
+    font-size: 18px;
   }
 }
