@@ -33,6 +33,7 @@ formElement.addEventListener("submit", (event) => {
   if (nameInput.value.length > 0 && aboutInput.value.length > 0) {
     handlerProfileFormSubmit(event);
   } else {
+    event.preventDefault();
     alert("Os campos não podem ficar em branco.");
   }
 });
