@@ -58,106 +58,14 @@
           </div>
         </section>
         <section class="cards">
-          <div class="cards__container">
-            <div class="card">
-              <img
-                src="./images/vale_de_yosemite.jpeg"
-                alt=" vale de yosemite image"
-                class="card__image"
-              />
-              <div class="card__description-container">
-                <h2 class="card__description">Vale do Yosemite</h2>
-                <img
-                  src="./images/Vector.svg"
-                  alt="like button"
-                  class="card__like"
-                />
-              </div>
-            </div>
-            <div class="card">
-              <img
-                src="./images/lago_louise.jpeg"
-                alt=" Lago Louise image"
-                class="card__image"
-              />
-              <div class="card__description-container">
-                <h2 class="card__description">Lago Louise</h2>
-                <img
-                  src="./images/Vector.svg"
-                  alt="like button"
-                  class="card__like"
-                />
-              </div>
-            </div>
-
-            <div class="card">
-              <img
-                src="./images/Montanhas_Care.jpeg"
-                alt=" Montanhas image"
-                class="card__image"
-              />
-              <div class="card__description-container">
-                <h2 class="card__description">Monstanhas care...</h2>
-                <img
-                  src="./images/Vector.svg"
-                  alt="like button"
-                  class="card__like"
-                />
-              </div>
-            </div>
-            <div class="card">
-              <img
-                src="./images/latemar.jpeg"
-                alt=" Latemar image"
-                class="card__image"
-              />
-              <div class="card__description-container">
-                <h2 class="card__description">Latemar</h2>
-                <img
-                  src="./images/Vector.svg"
-                  alt="like button"
-                  class="card__like"
-                />
-              </div>
-            </div>
-            <div class="card">
-              <img
-                src="./images/Parque_Nacional_Vanoise.jpeg"
-                alt=" Parque Nacional Vanoise image"
-                class="card__image"
-              />
-              <div class="card__description-container">
-                <h2 class="card__description">Parque Nacional Vanoise</h2>
-                <img
-                  src="./images/Vector.svg"
-                  alt="like button"
-                  class="card__like"
-                />
-              </div>
-            </div>
-            <div class="card">
-              <img
-                src="./images/lago_louise.jpeg"
-                alt=" Lago di Braies image"
-                class="card__image"
-              />
-              <div class="card__description-container">
-                <h2 class="card__description">Lago di Braies</h2>
-                <img
-                  src="./images/Vector.svg"
-                  alt="like button"
-                  class="card__like"
-                />
-              </div>
-            </div>
-          </div>
+          <div class="cards__container"></div>
         </section>
       </main>
       <footer class="footer">© 2024 Around The U.S.</footer>
       <div class="popup">
-        <div class="popup__hide" id="popup__fade"></div>
+        <div class="popup__fade"></div>
 
-        <div class="popup__hide" id="popup__opened">
+        <div class="popup__opened">
           <span class="popup__close-button"
             ><img
               src="./images/Close_Icon.png"
@@ -184,7 +92,48 @@
           </form>
         </div>
       </div>
+      <div class="add-popup">
+        <div class="add-popup__fade"></div>
+
+        <div class="add-popup__opened">
+          <span class="add-popup__close-button"
+            ><img
+              src="./images/Close_Icon.png"
+              class="add-popup__close-image"
+              alt="close image"
+          /></span>
+          <h2 class="add-popup__title">Novo local</h2>
+          <form class="add-popup__form">
+            <input
+              type="text"
+              placeholder="Título"
+              class="add-popup__card-title-insert"
+              id="add-popup__card-title-insert"
+            />
+
+            <input
+              type="text"
+              placeholder="Link da imagem"
+              class="add-popup__image-link-insert"
+              id="add-popup__image-link-insert"
+            />
+
+            <button type="submit" class="add-popup__submit-button">
+              Criar
+            </button>
+          </form>
+        </div>
+      </div>
     </div>
+    <template class="templates__cards">
+      <div class="templates__card">
+        <img src="" alt="" class="templates-card__image" />
+        <div class="templates__card__description-container">
+          <h2 class="templates__card__description"></h2>
+          <button class="templates__card-button"></button>
+        </div>
+      </div>
+    </template>
     <script src="script.js"></script>
   </body>
 </html>
