@@ -1,4 +1,4 @@
-.cards__container {
+.cards {
   display: flex;
   flex-wrap: wrap;
   max-width: 880px;
@@ -17,11 +17,21 @@
   font-weight: 900;
   line-height: 29px;
   text-align: center;
+  position: relative;
 }
 .templates-card__image {
   width: 100%;
   height: 282px;
   border-radius: 10px 10px 0px 0px;
+}
+
+.templates__card_remove-button {
+  position: absolute;
+  top: 18px;
+  right: 15px;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
 }
 .templates__card__description-container {
   display: flex;
@@ -38,12 +48,18 @@
   background-image: url("/images/Vector.jpg");
   background-color: white;
   background-repeat: no-repeat;
-  background-size: 21px;
+  background-size: 100%;
   width: 21px;
   height: 19px;
   border: none;
   align-self: center;
   cursor: pointer;
+  transition: 0.3s;
+}
+
+.templates__card_remove-button:hover {
+  transform: scale(1.1);
+  opacity: 0.5;
 }
 
 .templates__card-button:hover {
@@ -51,8 +67,14 @@
   opacity: 0.5;
 }
 
+.templates__card-button-active {
+  opacity: 1;
+  background: url(https://practicum-content.s3.us-west-1.amazonaws.com/web-code/dom/moved_heart-filled.svg)
+    center no-repeat;
+}
+
 @media screen and (min-width: 320px) and (max-width: 600px) {
-  .cards__container {
+  .cards {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;

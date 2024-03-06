@@ -83,6 +83,7 @@
   background-color: #000000;
   color: white;
   font-size: 18px;
+  cursor: pointer;
 }
 
 .add-popup__submit-button:hover {

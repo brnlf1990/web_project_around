@@ -17,8 +17,8 @@ const addButton = document.querySelector(".profile__add-button");
 const addCloseButton = document.querySelector(".add-popup__close-button");
 
 /* Variaveis para cards*/
-const cardContainer = document.querySelector(".cards__container");
-const template = document.querySelector(".templates__cards").content;
+const elCard = document.querySelector(".cards");
+const template = document.querySelector(".templates__cards-container").content;
 const formElementCard = document.querySelector(".add-popup__form");
 const initialCards = [
   {
@@ -58,7 +58,13 @@ function arrayCardAdd() {
     cardTemplate.querySelector(".templates-card__image").src = card.link;
     cardTemplate.querySelector(".templates__card__description").textContent =
       card.name;
-    cardContainer.append(cardTemplate);
+    elCard.append(cardTemplate);
+    removeCard();
+  });
+  elCard.querySelectorAll(".templates__card-button").forEach((button) => {
+    button.addEventListener("click", function (evt) {
+      evt.target.classList.toggle("templates__card-button-active");
+    });
   });
 }
 
@@ -113,8 +119,30 @@ function handlerCardFormSubmit(imagevalue, namevalue) {
   cardTemplate.querySelector(".templates-card__image").src = imagevalue;
   cardTemplate.querySelector(".templates__card__description").textContent =
     namevalue;
-  cardContainer.append(cardTemplate);
+  elCard.insertBefore(cardTemplate, elCard.firstChild);
+  elCard
+    .querySelector(".templates__card-button")
+    .addEventListener("click", function (evt) {
+      evt.target.classList.toggle("templates__card-button-active");
+    });
 }
+
+/* Função do botão de apagar*/
+function removeCard() {
+  const removeBtns = document.querySelectorAll(
+    ".templates__card_remove-button"
+  );
+
+  removeBtns.forEach((btn) => {
+    btn.addEventListener("click", function () {
+      const card = btn.closest(".templates__card");
+      if (card) {
+        card.remove();
+      }
+    });
+  });
+}
+
 /* Para deixar os cards existentes ja carregados na pagina*/
 arrayCardAdd();
 /* Lisnter do botao de abrir edit popup */
@@ -136,8 +164,10 @@ formElement.addEventListener("submit", (event) => {
 
 /* Listener do submit do add card */
 formElementCard.addEventListener("submit", (evt) => {
-  evt.preventDefault;
+  evt.preventDefault();
   const imageLink = document.querySelector(".add-popup__image-link-insert");
   const titleName = document.querySelector(".add-popup__card-title-insert");
   handlerCardFormSubmit(imageLink.value, titleName.value);
+  removeCard();
+  addClosePopup();
 });
