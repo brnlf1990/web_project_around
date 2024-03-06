@@ -170,4 +170,6 @@ formElementCard.addEventListener("submit", (evt) => {
   handlerCardFormSubmit(imageLink.value, titleName.value);
   removeCard();
   addClosePopup();
+  imageLink.value = "";
+  titleName.value = "";
 });
