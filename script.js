@@ -1,4 +1,6 @@
 /* Variaveis para edit-popup */
+
+testeste;
 const editButton = document.querySelector(".profile__info-edit-button");
 const popup = document.querySelector(".popup");
 const fade = document.querySelector(".popup__fade");
@@ -83,12 +85,21 @@ function closeEditPopup() {
   closeBtn.removeEventListener("click", closeEditPopup);
   fade.removeEventListener("click", closeEditPopup);
 }
-/* Função de abrir do add popup */
+/* Função de abrir janela do add popup */
 function addOpenPopup() {
   addPopup.classList.add("add-popup__opened");
   addFade.classList.add("add-popup__fade");
   addCloseButton.addEventListener("click", addClosePopup);
   addFade.addEventListener("click", addClosePopup);
+}
+
+/* Função de abrir a imagem */
+function openImage() {
+  const cardTemplate = template.querySelector(".templates__card");
+  const imagePopup = cardTemplate.querySelector(".templates-card__image").value;
+  cardTemplate
+    .querySelector(".templates-card__image")
+    .addEventListener("click");
 }
 
 /* Função de fechar do add popup */
@@ -145,6 +156,7 @@ function removeCard() {
 
 /* Para deixar os cards existentes ja carregados na pagina*/
 arrayCardAdd();
+openImage;
 /* Lisnter do botao de abrir edit popup */
 editButton.addEventListener("click", openEdtPopup);
 
