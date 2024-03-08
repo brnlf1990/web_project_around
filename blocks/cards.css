@@ -73,6 +73,20 @@
     center no-repeat;
 }
 
+.templates-card__close-image {
+  background-image: url("/images/Close_Icon.png");
+  background-repeat: no-repeat;
+  border: none;
+  background-color: transparent;
+  position: fixed;
+  top: 28%;
+  left: 70%;
+  color: white;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+}
+
 @media screen and (min-width: 320px) and (max-width: 600px) {
   .cards {
     display: flex;

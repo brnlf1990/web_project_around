@@ -1,6 +1,4 @@
 /* Variaveis para edit-popup */
-
-testeste;
 const editButton = document.querySelector(".profile__info-edit-button");
 const popup = document.querySelector(".popup");
 const fade = document.querySelector(".popup__fade");
@@ -95,13 +93,36 @@ function addOpenPopup() {
 
 /* Função de abrir a imagem */
 function openImage() {
-  const cardTemplate = template.querySelector(".templates__card");
-  const imagePopup = cardTemplate.querySelector(".templates-card__image").value;
-  cardTemplate
-    .querySelector(".templates-card__image")
-    .addEventListener("click");
+  const cardsContainer = document.querySelector(".cards");
+  const cards = cardsContainer.querySelectorAll(".templates__card");
+  fade.classList.add("popup__fade");
+  cards.forEach((card) => {
+    const image = card.querySelector(".templates-card__image");
+    const imageSrc = image.getAttribute("src");
+
+    image.addEventListener("click", () => {
+      const popupImage = document.createElement("img");
+      const closeBtn = document.createElement("button");
+
+      popupImage.setAttribute("src", imageSrc);
+      popupImage.classList.add("popup__image");
+
+      closeBtn.classList.add("templates-card__close-image");
+      cardsContainer.appendChild(popupImage);
+      cardsContainer.appendChild(closeBtn);
+
+      closeImagePopup();
+    });
+  });
 }
 
+/* Função de fechar do add popup */
+
+function closeImagePopup() {
+  cardsContainer.appendChild();
+  cardsContainer.classList.remove("popup__image");
+  closeImagePopup.removeEventListener("click", closeImagePopup);
+}
 /* Função de fechar do add popup */
 function addClosePopup() {
   addPopup.classList.remove("add-popup__opened");
@@ -156,7 +177,7 @@ function removeCard() {
 
 /* Para deixar os cards existentes ja carregados na pagina*/
 arrayCardAdd();
-openImage;
+openImage();
 /* Lisnter do botao de abrir edit popup */
 editButton.addEventListener("click", openEdtPopup);
 
@@ -184,4 +205,5 @@ formElementCard.addEventListener("submit", (evt) => {
   addClosePopup();
   imageLink.value = "";
   titleName.value = "";
+  openImage();
 });
