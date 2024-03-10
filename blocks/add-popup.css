@@ -91,7 +91,7 @@
   opacity: 0.8;
   border-radius: 2px;
 }
-.add-popup__close-button {
+.add-popup__close-button:hover {
   opacity: 0.8;
   border-radius: 2px;
 }
