@@ -91,6 +91,12 @@ function addOpenPopup() {
   addFade.addEventListener("click", addClosePopup);
 }
 
+/* Função de fechar popup imagem */
+function closeImagePopup(popupImage, closeBtn) {
+  popupImage.remove();
+  closeBtn.remove();
+}
+
 /* Função de abrir a imagem */
 function openImage() {
   const cardsContainer = document.querySelector(".cards");
@@ -110,19 +116,15 @@ function openImage() {
       closeBtn.classList.add("templates-card__close-image");
       cardsContainer.appendChild(popupImage);
       cardsContainer.appendChild(closeBtn);
-
-      closeImagePopup();
+      closeBtn.addEventListener("click", (evt) => {
+        closeImagePopup(popupImage, closeBtn);
+        evt.preventDefault();
+        closeBtn.removeEventListener("click", closeImagePopup);
+      });
     });
   });
 }
 
-/* Função de fechar do add popup */
-
-function closeImagePopup() {
-  cardsContainer.appendChild();
-  cardsContainer.classList.remove("popup__image");
-  closeImagePopup.removeEventListener("click", closeImagePopup);
-}
 /* Função de fechar do add popup */
 function addClosePopup() {
   addPopup.classList.remove("add-popup__opened");
@@ -157,6 +159,7 @@ function handlerCardFormSubmit(imagevalue, namevalue) {
     .addEventListener("click", function (evt) {
       evt.target.classList.toggle("templates__card-button-active");
     });
+  removeCard();
 }
 
 /* Função do botão de apagar*/
@@ -178,6 +181,7 @@ function removeCard() {
 /* Para deixar os cards existentes ja carregados na pagina*/
 arrayCardAdd();
 openImage();
+
 /* Lisnter do botao de abrir edit popup */
 editButton.addEventListener("click", openEdtPopup);
 
