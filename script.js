@@ -54,8 +54,9 @@ function arrayCardAdd() {
     const cardTemplate = template
       .querySelector(".templates__card")
       .cloneNode(true);
-
-    cardTemplate.querySelector(".templates-card__image").src = card.link;
+    const imageEl = cardTemplate.querySelector(".templates-card__image");
+    imageEl.src = card.link;
+    imageEl.alt = card.name;
     cardTemplate.querySelector(".templates__card__description").textContent =
       card.name;
     elCard.append(cardTemplate);
@@ -150,7 +151,9 @@ function handlerCardFormSubmit(imagevalue, namevalue) {
   const cardTemplate = template
     .querySelector(".templates__card")
     .cloneNode(true);
-  cardTemplate.querySelector(".templates-card__image").src = imagevalue;
+  const imageEl = cardTemplate.querySelector(".templates-card__image");
+  imageEl.src = imagevalue;
+  imageEl.alt = namevalue;
   cardTemplate.querySelector(".templates__card__description").textContent =
     namevalue;
   elCard.insertBefore(cardTemplate, elCard.firstChild);
@@ -190,13 +193,9 @@ addButton.addEventListener("click", addOpenPopup);
 
 /* Listener do submit do editpopup */
 formElement.addEventListener("submit", (event) => {
-  if (nameInput.value.length > 0 && aboutInput.value.length > 0) {
-    handlerProfileFormSubmit(event);
-    closeEditPopup();
-  } else {
-    event.preventDefault();
-    alert("Os campos não podem ficar em branco.");
-  }
+  handlerProfileFormSubmit(event);
+  closeEditPopup();
+  event.preventDefault();
 });
 
 /* Listener do submit do add card */
