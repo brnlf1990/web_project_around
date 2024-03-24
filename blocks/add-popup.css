@@ -38,8 +38,14 @@
 }
 
 .add-popup__close-image {
+<<<<<<< HEAD
   width: 8%;
   height: 8%;
+=======
+  width: 10%;
+  height: 10%;
+  opacity: 0.6;
+>>>>>>> develop2
   position: fixed;
 }
 
@@ -57,22 +63,6 @@
   height: 80%;
   flex-direction: column;
   justify-content: space-around;
-}
-
-.add-popup__card-title-insert {
-  border: none;
-  width: 358px;
-  border-bottom: 1px solid rgba(0, 0, 0, 1);
-  max-width: 85%;
-  color: #000000;
-}
-
-.add-popup__image-link-insert {
-  border: none;
-  width: 358px;
-  border-bottom: 1px solid rgba(0, 0, 0, 1);
-  color: #000000;
-  max-width: 85%;
 }
 
 .add-popup__submit-button {

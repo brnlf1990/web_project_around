@@ -1,3 +1,5 @@
+import { editEnableVal, setEventListeners } from "./form.js";
+
 /* Variaveis para edit-popup */
 const editButton = document.querySelector(".profile__info-edit-button");
 const popup = document.querySelector(".popup");
@@ -7,8 +9,8 @@ const saveBtn = document.querySelector(".popup__submit-button");
 const formElement = document.querySelector(".popup__form");
 const profileName = document.querySelector(".profile__info-name");
 const about = document.querySelector(".profile__info-content");
-const nameInput = document.querySelector(".popup__name-insert");
-const aboutInput = document.querySelector(".popup__aboutMe-insert");
+const nameInput = document.querySelector("#popup__name-insert");
+const aboutInput = document.querySelector("#popup__aboutMe-insert");
 
 /* Variaveis para add-popup*/
 const addPopup = document.querySelector(".add-popup");
@@ -75,6 +77,7 @@ function openEdtPopup() {
   fade.classList.add("popup__fade");
   closeBtn.addEventListener("click", closeEditPopup);
   fade.addEventListener("click", closeEditPopup);
+  setEventListeners(formElement);
 }
 
 /* Função de fechar do edit popup */
@@ -93,9 +96,10 @@ function addOpenPopup() {
 }
 
 /* Função de fechar popup imagem */
-function closeImagePopup(popupImage, closeBtn) {
+function closeImagePopup(popupImage, closeBtn, spanClass) {
   popupImage.remove();
   closeBtn.remove();
+  spanClass.remove();
 }
 
 /* Função de abrir a imagem */
@@ -108,17 +112,26 @@ function openImage() {
     const imageSrc = image.getAttribute("src");
 
     image.addEventListener("click", () => {
+      const containerImage = document.createElement("div");
       const popupImage = document.createElement("img");
-      const closeBtn = document.createElement("button");
+      const spanPopup = document.createElement("span");
+      const closeButton = document.querySelector(".popup__close-image");
+      const closeButtonSrc = closeButton.getAttribute("src");
+      const closeBtn = document.createElement("img");
 
+      containerImage.classList.add("template__container-image");
       popupImage.setAttribute("src", imageSrc);
       popupImage.classList.add("popup__image");
+      spanPopup.classList.add("templates-popup__close-button");
+      closeBtn.setAttribute("src", closeButtonSrc);
+      closeBtn.classList.add("popup__close-image");
 
-      closeBtn.classList.add("templates-card__close-image");
-      cardsContainer.appendChild(popupImage);
-      cardsContainer.appendChild(closeBtn);
+      cardsContainer.appendChild(containerImage);
+      containerImage.appendChild(popupImage);
+      containerImage.appendChild(spanPopup);
+      spanPopup.appendChild(closeBtn);
       closeBtn.addEventListener("click", (evt) => {
-        closeImagePopup(popupImage, closeBtn);
+        closeImagePopup(popupImage, closeBtn, spanPopup);
         evt.preventDefault();
         closeBtn.removeEventListener("click", closeImagePopup);
       });
@@ -134,7 +147,7 @@ function addClosePopup() {
   addFade.addEventListener("click", addClosePopup);
 }
 
-/* Função de do submit do edit popup */
+/* Função do submit do edit popup */
 
 function handlerProfileFormSubmit(event) {
   event.preventDefault();
@@ -184,6 +197,7 @@ function removeCard() {
 /* Para deixar os cards existentes ja carregados na pagina*/
 arrayCardAdd();
 openImage();
+editEnableVal();
 
 /* Lisnter do botao de abrir edit popup */
 editButton.addEventListener("click", openEdtPopup);
@@ -201,8 +215,8 @@ formElement.addEventListener("submit", (event) => {
 /* Listener do submit do add card */
 formElementCard.addEventListener("submit", (evt) => {
   evt.preventDefault();
-  const imageLink = document.querySelector(".add-popup__image-link-insert");
-  const titleName = document.querySelector(".add-popup__card-title-insert");
+  const imageLink = document.querySelector("#popup__image-link-insert");
+  const titleName = document.querySelector("#popup__card-title-insert");
   handlerCardFormSubmit(imageLink.value, titleName.value);
   removeCard();
   addClosePopup();

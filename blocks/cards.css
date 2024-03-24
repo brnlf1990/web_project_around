@@ -73,18 +73,24 @@
     center no-repeat;
 }
 
-.templates-card__close-image {
-  background-image: url("/images/Close_Icon.png");
-  background-repeat: no-repeat;
-  border: none;
-  background-color: transparent;
+.template__container-image {
   position: fixed;
-  top: 16%;
-  left: 70%;
+  display: flex;
+}
+
+.templates-popup__close-button {
+  position: fixed;
+  bottom: 84%;
+  left: 65%;
   color: white;
+  height: 40px;
+  width: 40px;
+  cursor: pointer;
+}
+.templates-card__close-image {
+  background-repeat: no-repeat;
   width: 40px;
   height: 40px;
-  cursor: pointer;
 }
 .templates-card__close-image:hover {
   opacity: 0.3;

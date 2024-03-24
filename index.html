@@ -88,19 +88,32 @@
             <input
               type="text"
               placeholder="Nome"
-              class="popup__name-insert"
+              class="popup__form-input"
               id="popup__name-insert"
+              minlength="2"
+              maxlength="40"
               required
             />
+            <span class="popup__name-insert-error"></span>
+
             <input
               type="text"
               placeholder="Sobre mim"
-              class="popup__aboutMe-insert"
+              class="popup__form-input"
               id="popup__aboutMe-insert"
+              minlength="2"
+              maxlength="200"
               required
             />
+            <span class="popup__aboutMe-insert-error"></span>
 
-            <button type="submit" class="popup__submit-button">Salvar</button>
+            <button
+              type="submit"
+              id="submit-button"
+              class="popup__submit-button"
+            >
+              Salvar
+            </button>
           </form>
         </div>
       </div>
@@ -115,24 +128,29 @@
               alt="close image"
           /></span>
           <h2 class="add-popup__title">Novo local</h2>
-          <form class="add-popup__form">
+          <form class="add-popup__form" novalidate>
             <input
               type="text"
               placeholder="Título"
-              class="add-popup__card-title-insert"
-              id="add-popup__card-title-insert"
-              required
-            />
-
+              class="popup__form-input"
+              id="popup__card-title-insert"
+              minlength="2"
+              maxlength="30"
+            />>>>>>> develop2 required />
+            <span class="popup__card-title-insert-error"></span>
             <input
-              type="text"
+              type="url"
               placeholder="Link da imagem"
-              class="add-popup__image-link-insert"
-              id="add-popup__image-link-insert"
+              class="popup__form-input"
+              id="popup__image-link-insert"
               required
             />
-
-            <button type="submit" class="add-popup__submit-button">
+            <span class="popup__image-link-insert-error"></span>
+            <button
+              type="submit"
+              id="submit-button"
+              class="popup__submit-button"
+            >
               Criar
             </button>
           </form>
@@ -140,6 +158,6 @@
       </div>
     </div>
 
-    <script src="script.js"></script>
+    <script type="module" src="script.js" defer></script>
   </body>
 </html>
