@@ -13,15 +13,15 @@ const nameInput = document.querySelector("#popup__name-insert");
 const aboutInput = document.querySelector("#popup__aboutMe-insert");
 
 /* Variaveis para add-popup*/
-const addPopup = document.querySelector(".popup-add");
-const addFade = document.querySelector(".popup__fade-add");
+const addPopup = document.querySelector(".add-popup");
+const addFade = document.querySelector(".add-popup__fade");
 const addButton = document.querySelector(".profile__add-button");
-const addCloseButton = document.querySelector(".popup__close-button-add");
+const addCloseButton = document.querySelector(".add-popup__close-button");
 
 /* Variaveis para cards*/
 const elCard = document.querySelector(".cards");
 const template = document.querySelector(".templates__cards-container").content;
-const formElementCard = document.querySelector(".popup__form-add");
+const formElementCard = document.querySelector(".add-popup__form");
 const initialCards = [
   {
     name: "Vale de Yosemite",
@@ -89,8 +89,8 @@ function closeEditPopup() {
 }
 /* Função de abrir janela do add popup */
 function addOpenPopup() {
-  addPopup.classList.add("popup__opened-add");
-  addFade.classList.add("popup__fade-add");
+  addPopup.classList.add("add-popup__opened");
+  addFade.classList.add("add-popup__fade");
   addCloseButton.addEventListener("click", addClosePopup);
   addFade.addEventListener("click", addClosePopup);
 }
@@ -141,8 +141,8 @@ function openImage() {
 
 /* Função de fechar do add popup */
 function addClosePopup() {
-  addPopup.classList.remove("popup__opened-add");
-  addFade.classList.remove("popup__fade-add");
+  addPopup.classList.remove("add-popup__opened");
+  addFade.classList.remove("add-popup__fade");
   addCloseButton.removeEventListener("click", addClosePopup);
   addFade.addEventListener("click", addClosePopup);
 }

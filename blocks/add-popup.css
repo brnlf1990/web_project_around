@@ -1,7 +1,7 @@
-.popup-add {
+.add-popup {
   display: none;
 }
-.popup__fade-add {
+.add-popup__fade {
   position: fixed;
 
   width: 100vw;
@@ -10,7 +10,7 @@
   z-index: 9;
 }
 
-.popup__opened-add {
+.add-popup__opened {
   position: fixed;
   display: flex;
   top: 50%;
@@ -27,7 +27,7 @@
   align-items: center;
 }
 
-.popup__close-button-add {
+.add-popup__close-button {
   position: absolute;
   bottom: 99%;
   left: 101%;
@@ -37,13 +37,13 @@
   cursor: pointer;
 }
 
-.popup__close-image-add {
+.add-popup__close-image {
   width: 8%;
   height: 8%;
   position: fixed;
 }
 
-.popup__title-add {
+.add-popup__title {
   font-style: normal;
   font-weight: 900;
   font-size: 24px;
@@ -52,14 +52,14 @@
   padding-right: 48%;
 }
 
-.popup__form-add {
+.add-popup__form {
   display: flex;
   height: 80%;
   flex-direction: column;
   justify-content: space-around;
 }
 
-.popup__submit-button-add {
+.add-popup__submit-button {
   width: 358px;
   max-width: 85%;
   height: 50px;
@@ -70,11 +70,11 @@
   cursor: pointer;
 }
 
-.popup__submit-button-add:hover {
+.add-popup__submit-button:hover {
   opacity: 0.8;
   border-radius: 2px;
 }
-.popup__close-button-add:hover {
+.add-popup__close-button:hover {
   opacity: 0.8;
   border-radius: 2px;
 }
