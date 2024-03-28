@@ -98,13 +98,10 @@ function addOpenPopup() {
 
 /* Função de fechar popup imagem */
 function closeImagePopup() {
-  const templateOpenedImage = document.querySelector(".template__open-image");
-  const templateContainerImage = templateOpenedImage.querySelector(
-    ".template__container-image"
-  );
-  const templateFade = templateOpenedImage.querySelector(".template__fade");
+  const templateOpenedImage = document.querySelector(".view-image");
 
-  templateOpenedImage.classList.remove("template__container-image");
+  templateOpenedImage.classList.remove("view-image__container-image");
+  closeBtn.removeEventListener("click", closeImagePopup);
 }
 
 /* Função de fechar do add popup */
@@ -165,30 +162,29 @@ function removeCard() {
 /* Função de abrir a imagem */
 
 function openImage() {
-  const templateOpenedImage = document.querySelector(".template__open-image");
+  const templateOpenedImage = document.querySelector(".view-image");
   const templateContainerImage = templateOpenedImage.querySelector(
-    ".template__container-image"
+    ".view-image__container-image"
   );
   const cardsContainer = document.querySelector(".cards");
   const cards = cardsContainer.querySelectorAll(".templates__card");
   cards.forEach((card) => {
     const image = card.querySelector(".templates-card__image");
     const title = card.querySelector(".templates__card__description");
-    const fadeClose = templateOpenedImage.querySelector(".template__fade");
-    const templateImageTitle = templateContainerImage.querySelector(
-      ".template__open-image-title"
-    );
+    const fadeClose = templateOpenedImage.querySelector(".view-image__fade");
+    const templateImageTitle =
+      templateContainerImage.querySelector(".view-image-title");
     const closeBtn = templateContainerImage.querySelector(
-      ".template__close-button"
+      ".view-image__close-button"
     );
     const templateImage =
-      templateContainerImage.querySelector(".template__image");
+      templateContainerImage.querySelector(".view-image__image");
 
     const imageSrc = image.getAttribute("src");
 
     image.addEventListener("click", () => {
-      templateOpenedImage.classList.add("template__container-image");
-      templateOpenedImage.classList.add("template__fade");
+      templateOpenedImage.classList.add("view-image__container-image");
+      templateOpenedImage.classList.add("view-image__fade");
       templateImage.setAttribute("src", imageSrc);
       templateImageTitle.textContent = title.textContent;
       closeBtn.addEventListener("click", closeImagePopup);
