@@ -91,11 +91,11 @@
   opacity: 0.3;
 }
 
-.modal__image {
+.view__image {
   display: none;
 }
 
-.modal__container-image {
+.view__container-image {
   position: fixed;
   display: flex;
   top: 50%;
@@ -111,7 +111,7 @@
   align-items: center;
 }
 
-.modal__close-button {
+.view__close-button {
   position: absolute;
   bottom: 133%;
   left: 101%;
@@ -121,12 +121,12 @@
   cursor: pointer;
 }
 
-.modal__close-image {
+.view__close-image {
   width: 100%;
   height: 100%;
 }
 
-.modal__fade {
+.view__fade {
   position: fixed;
   width: 100%;
   height: 100%;
@@ -134,13 +134,13 @@
   z-index: 9;
 }
 
-.modal__view-image {
+.view__view-image {
   position: absolute;
   width: 433px;
   height: 540px;
 }
 
-.modal__image-title {
+.view__image-title {
   position: absolute;
   top: 443px;
   left: 10px;
@@ -192,7 +192,7 @@
     align-items: center;
   }
 
-  .modal__fade {
+  .view__fade {
     position: fixed;
     width: 100%;
     height: 100%;
@@ -200,13 +200,13 @@
     z-index: 9;
   }
 
-  .modal__view-image {
+  .view__view-image {
     position: absolute;
     width: 240px;
     height: 299px;
   }
 
-  .modal__image-title {
+  .view__image-title {
     position: absolute;
     top: 310px;
     left: 10px;
@@ -219,7 +219,7 @@
     color: #ffffff;
   }
 
-  .modal__button {
+  .view__button {
     position: absolute;
     bottom: 100%;
     left: 101%;

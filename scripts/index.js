@@ -73,8 +73,8 @@ function arrayCardAdd() {
 }
 
 /* Função de abrir do edit popup */
-function modalEdtPopup() {
-  popup.classList.add("popup__modaled");
+function viewEdtPopup() {
+  popup.classList.add("popup__viewed");
   fade.classList.add("popup__fade");
   closeBtn.addEventListener("click", closeEditPopup);
   fade.addEventListener("click", closeEditPopup);
@@ -83,14 +83,14 @@ function modalEdtPopup() {
 
 /* Função de fechar do edit popup */
 function closeEditPopup() {
-  popup.classList.remove("popup__modaled");
+  popup.classList.remove("popup__viewed");
   fade.classList.remove("popup__fade");
   closeBtn.removeEventListener("click", closeEditPopup);
   fade.removeEventListener("click", closeEditPopup);
 }
 /* Função de abrir janela do add popup */
-function addmodalPopup() {
-  addPopup.classList.add("add-popup__modaled");
+function addviewPopup() {
+  addPopup.classList.add("add-popup__viewed");
   addFade.classList.add("add-popup__fade");
   addCloseButton.addEventListener("click", addClosePopup);
   addFade.addEventListener("click", addClosePopup);
@@ -98,16 +98,16 @@ function addmodalPopup() {
 
 /* Função de fechar popup imagem */
 function closeImagePopup() {
-  const templatemodaledImage = document.querySelector(".modal__image");
+  const templateviewedImage = document.querySelector(".view__image");
 
-  const templateFade = templatemodaledImage.querySelector(".modal__fade");
+  const templateFade = templateviewedImage.querySelector(".view__fade");
 
-  templatemodaledImage.classList.remove("modal__container-image");
+  templateviewedImage.classList.remove("view__container-image");
 }
 
 /* Função de fechar do add popup */
 function addClosePopup() {
-  addPopup.classList.remove("add-popup__modaled");
+  addPopup.classList.remove("add-popup__viewed");
   addFade.classList.remove("add-popup__fade");
   addCloseButton.removeEventListener("click", addClosePopup);
   addFade.addEventListener("click", addClosePopup);
@@ -162,31 +162,30 @@ function removeCard() {
 
 /* Função de abrir a imagem */
 
-function modalImage() {
-  const templatemodaledImage = document.querySelector(".modal__image");
-  const templateContainerImage = templatemodaledImage.querySelector(
-    ".modal__container-image"
+function viewImage() {
+  const templateviewedImage = document.querySelector(".view__image");
+  const templateContainerImage = templateviewedImage.querySelector(
+    ".view__container-image"
   );
   const cardsContainer = document.querySelector(".cards");
   const cards = cardsContainer.querySelectorAll(".templates__card");
   cards.forEach((card) => {
     const image = card.querySelector(".templates-card__image");
     const title = card.querySelector(".templates__card__description");
-    const fadeClose = templatemodaledImage.querySelector(".modal__fade");
-    const templateImageTitle = templateContainerImage.querySelector(
-      ".modal__image-title"
-    );
+    const fadeClose = templateviewedImage.querySelector(".view__fade");
+    const templateImageTitle =
+      templateContainerImage.querySelector(".view__image-title");
     const closeBtn = templateContainerImage.querySelector(
-      ".modal__close-button"
+      ".view__close-button"
     );
     const templateImage =
-      templateContainerImage.querySelector(".modal__view-image");
+      templateContainerImage.querySelector(".view__view-image");
 
     const imageSrc = image.getAttribute("src");
 
     image.addEventListener("click", () => {
-      templatemodaledImage.classList.add("modal__container-image");
-      templatemodaledImage.classList.add("modal__fade");
+      templateviewedImage.classList.add("view__container-image");
+      templateviewedImage.classList.add("view__fade");
       templateImage.setAttribute("src", imageSrc);
       templateImageTitle.textContent = title.textContent;
       templateImage.setAttribute("alt", templateImageTitle.textContent);
@@ -201,14 +200,14 @@ function modalImage() {
 arrayCardAdd();
 editEnableVal();
 document.addEventListener("DOMContentLoaded", function () {
-  modalImage();
+  viewImage();
 });
 
 /* Listener do botao de abrir edit popup */
-editButton.addEventListener("click", modalEdtPopup);
+editButton.addEventListener("click", viewEdtPopup);
 
 /* Listener do botao de abrid add popup */
-addButton.addEventListener("click", addmodalPopup);
+addButton.addEventListener("click", addviewPopup);
 
 /* Listener do submit do editpopup */
 formElement.addEventListener("submit", (event) => {
@@ -227,5 +226,5 @@ formElementCard.addEventListener("submit", (evt) => {
   addClosePopup();
   imageLink.value = "";
   titleName.value = "";
-  modalImage();
+  viewImage();
 });

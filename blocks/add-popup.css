@@ -10,7 +10,7 @@
   z-index: 9;
 }
 
-.add-popup__modaled {
+.add-popup__viewed {
   position: fixed;
   display: flex;
   top: 50%;
