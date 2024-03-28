@@ -10,7 +10,7 @@
   z-index: 9;
 }
 
-.popup__viewed {
+.popup__card-viewed {
   position: fixed;
   display: flex;
   top: 50%;
