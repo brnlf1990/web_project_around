@@ -73,8 +73,8 @@ function arrayCardAdd() {
 }
 
 /* Função de abrir do edit popup */
-function card-viewEdtPopup() {
-  popup.classList.add("popup__card-viewed");
+function modalEdtPopup() {
+  popup.classList.add("popup__modaled");
   fade.classList.add("popup__fade");
   closeBtn.addEventListener("click", closeEditPopup);
   fade.addEventListener("click", closeEditPopup);
@@ -83,14 +83,14 @@ function card-viewEdtPopup() {
 
 /* Função de fechar do edit popup */
 function closeEditPopup() {
-  popup.classList.remove("popup__card-viewed");
+  popup.classList.remove("popup__modaled");
   fade.classList.remove("popup__fade");
   closeBtn.removeEventListener("click", closeEditPopup);
   fade.removeEventListener("click", closeEditPopup);
 }
 /* Função de abrir janela do add popup */
-function addcard-viewPopup() {
-  addPopup.classList.add("add-popup__card-viewed");
+function addmodalPopup() {
+  addPopup.classList.add("add-popup__modaled");
   addFade.classList.add("add-popup__fade");
   addCloseButton.addEventListener("click", addClosePopup);
   addFade.addEventListener("click", addClosePopup);
@@ -98,16 +98,16 @@ function addcard-viewPopup() {
 
 /* Função de fechar popup imagem */
 function closeImagePopup() {
-  const templatecard-viewedImage = document.querySelector(".card-view__image");
+  const templatemodaledImage = document.querySelector(".modal__image");
 
-  const templateFade = templatecard-viewedImage.querySelector(".card-view__fade");
+  const templateFade = templatemodaledImage.querySelector(".modal__fade");
 
-  templatecard-viewedImage.classList.remove("card-view__container-image");
+  templatemodaledImage.classList.remove("modal__container-image");
 }
 
 /* Função de fechar do add popup */
 function addClosePopup() {
-  addPopup.classList.remove("add-popup__card-viewed");
+  addPopup.classList.remove("add-popup__modaled");
   addFade.classList.remove("add-popup__fade");
   addCloseButton.removeEventListener("click", addClosePopup);
   addFade.addEventListener("click", addClosePopup);
@@ -162,30 +162,31 @@ function removeCard() {
 
 /* Função de abrir a imagem */
 
-function card-viewImage() {
-  const templatecard-viewedImage = document.querySelector(".card-view__image");
-  const templateContainerImage = templatecard-viewedImage.querySelector(
-    ".card-view__container-image"
+function modalImage() {
+  const templatemodaledImage = document.querySelector(".modal__image");
+  const templateContainerImage = templatemodaledImage.querySelector(
+    ".modal__container-image"
   );
   const cardsContainer = document.querySelector(".cards");
   const cards = cardsContainer.querySelectorAll(".templates__card");
   cards.forEach((card) => {
     const image = card.querySelector(".templates-card__image");
     const title = card.querySelector(".templates__card__description");
-    const fadeClose = templatecard-viewedImage.querySelector(".card-view__fade");
-    const templateImageTitle =
-      templateContainerImage.querySelector(".card-view__image-title");
+    const fadeClose = templatemodaledImage.querySelector(".modal__fade");
+    const templateImageTitle = templateContainerImage.querySelector(
+      ".modal__image-title"
+    );
     const closeBtn = templateContainerImage.querySelector(
-      ".card-view__close-button"
+      ".modal__close-button"
     );
     const templateImage =
-      templateContainerImage.querySelector(".card-view__card-view-image");
+      templateContainerImage.querySelector(".modal__view-image");
 
     const imageSrc = image.getAttribute("src");
 
     image.addEventListener("click", () => {
-      templatecard-viewedImage.classList.add("card-view__container-image");
-      templatecard-viewedImage.classList.add("card-view__fade");
+      templatemodaledImage.classList.add("modal__container-image");
+      templatemodaledImage.classList.add("modal__fade");
       templateImage.setAttribute("src", imageSrc);
       templateImageTitle.textContent = title.textContent;
       templateImage.setAttribute("alt", templateImageTitle.textContent);
@@ -200,14 +201,14 @@ function card-viewImage() {
 arrayCardAdd();
 editEnableVal();
 document.addEventListener("DOMContentLoaded", function () {
-  card-viewImage();
+  modalImage();
 });
 
 /* Listener do botao de abrir edit popup */
-editButton.addEventListener("click", card-viewEdtPopup);
+editButton.addEventListener("click", modalEdtPopup);
 
 /* Listener do botao de abrid add popup */
-addButton.addEventListener("click", addcard-viewPopup);
+addButton.addEventListener("click", addmodalPopup);
 
 /* Listener do submit do editpopup */
 formElement.addEventListener("submit", (event) => {
@@ -226,5 +227,5 @@ formElementCard.addEventListener("submit", (evt) => {
   addClosePopup();
   imageLink.value = "";
   titleName.value = "";
-  card-viewImage();
+  modalImage();
 });
