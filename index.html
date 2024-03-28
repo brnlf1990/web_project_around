@@ -70,6 +70,21 @@
               </div>
             </div>
           </template>
+
+          <div class="template__open-image">
+            <div class="template__fade"></div>
+            <div class="template__container-image">
+              <span class="template__close-button"
+                ><img
+                  src="./images/Close_Icon.png"
+                  class="template__close-image"
+                  alt="close image"
+              /></span>
+              <img src="#" alt="" class="template__image" />
+
+              <span class="template__open-image-title"></span>
+            </div>
+          </div>
         </section>
       </main>
       <footer class="footer">© 2024 Around The U.S.</footer>
@@ -136,7 +151,8 @@
               id="popup__card-title-insert"
               minlength="2"
               maxlength="30"
-            />>>>>>> develop2 required />
+              required
+            />
             <span class="popup__card-title-insert-error"></span>
             <input
               type="url"
@@ -152,6 +168,6 @@
       </div>
     </div>
 
-    <script type="module" src="script.js" defer></script>
+    <script type="module" src="./scripts/index.js"></script>
   </body>
 </html>

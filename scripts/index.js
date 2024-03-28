@@ -22,6 +22,7 @@ const addCloseButton = document.querySelector(".add-popup__close-button");
 const elCard = document.querySelector(".cards");
 const template = document.querySelector(".templates__cards-container").content;
 const formElementCard = document.querySelector(".add-popup__form");
+
 const initialCards = [
   {
     name: "Vale de Yosemite",
@@ -96,47 +97,14 @@ function addOpenPopup() {
 }
 
 /* Função de fechar popup imagem */
-function closeImagePopup(popupImage, closeBtn, spanClass) {
-  popupImage.remove();
-  closeBtn.remove();
-  spanClass.remove();
-}
+function closeImagePopup() {
+  const templateOpenedImage = document.querySelector(".template__open-image");
+  const templateContainerImage = templateOpenedImage.querySelector(
+    ".template__container-image"
+  );
+  const templateFade = templateOpenedImage.querySelector(".template__fade");
 
-/* Função de abrir a imagem */
-function openImage() {
-  const cardsContainer = document.querySelector(".cards");
-  const cards = cardsContainer.querySelectorAll(".templates__card");
-  fade.classList.add("popup__fade");
-  cards.forEach((card) => {
-    const image = card.querySelector(".templates-card__image");
-    const imageSrc = image.getAttribute("src");
-
-    image.addEventListener("click", () => {
-      const containerImage = document.createElement("div");
-      const popupImage = document.createElement("img");
-      const spanPopup = document.createElement("span");
-      const closeButton = document.querySelector(".popup__close-image");
-      const closeButtonSrc = closeButton.getAttribute("src");
-      const closeBtn = document.createElement("img");
-
-      containerImage.classList.add("template__container-image");
-      popupImage.setAttribute("src", imageSrc);
-      popupImage.classList.add("popup__image");
-      spanPopup.classList.add("templates-popup__close-button");
-      closeBtn.setAttribute("src", closeButtonSrc);
-      closeBtn.classList.add("popup__close-image");
-
-      cardsContainer.appendChild(containerImage);
-      containerImage.appendChild(popupImage);
-      containerImage.appendChild(spanPopup);
-      spanPopup.appendChild(closeBtn);
-      closeBtn.addEventListener("click", (evt) => {
-        closeImagePopup(popupImage, closeBtn, spanPopup);
-        evt.preventDefault();
-        closeBtn.removeEventListener("click", closeImagePopup);
-      });
-    });
-  });
+  templateOpenedImage.classList.remove("template__container-image");
 }
 
 /* Função de fechar do add popup */
@@ -194,12 +162,49 @@ function removeCard() {
   });
 }
 
+/* Função de abrir a imagem */
+
+function openImage() {
+  const templateOpenedImage = document.querySelector(".template__open-image");
+  const templateContainerImage = templateOpenedImage.querySelector(
+    ".template__container-image"
+  );
+  const cardsContainer = document.querySelector(".cards");
+  const cards = cardsContainer.querySelectorAll(".templates__card");
+  cards.forEach((card) => {
+    const image = card.querySelector(".templates-card__image");
+    const title = card.querySelector(".templates__card__description");
+    const fadeClose = templateOpenedImage.querySelector(".template__fade");
+    const templateImageTitle = templateContainerImage.querySelector(
+      ".template__open-image-title"
+    );
+    const closeBtn = templateContainerImage.querySelector(
+      ".template__close-button"
+    );
+    const templateImage =
+      templateContainerImage.querySelector(".template__image");
+
+    const imageSrc = image.getAttribute("src");
+
+    image.addEventListener("click", () => {
+      templateOpenedImage.classList.add("template__container-image");
+      templateOpenedImage.classList.add("template__fade");
+      templateImage.setAttribute("src", imageSrc);
+      templateImageTitle.textContent = title.textContent;
+      closeBtn.addEventListener("click", closeImagePopup);
+      fadeClose.addEventListener("click", closeImagePopup);
+    });
+  });
+}
+
 /* Para deixar os cards existentes ja carregados na pagina*/
 arrayCardAdd();
-openImage();
 editEnableVal();
+document.addEventListener("DOMContentLoaded", function () {
+  openImage();
+});
 
-/* Lisnter do botao de abrir edit popup */
+/* Listener do botao de abrir edit popup */
 editButton.addEventListener("click", openEdtPopup);
 
 /* Listener do botao de abrid add popup */
