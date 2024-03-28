@@ -91,7 +91,7 @@
   opacity: 0.3;
 }
 
-.opened__image {
+.open__image {
   display: none;
 }
 
@@ -134,7 +134,7 @@
   z-index: 9;
 }
 
-.open__image {
+.open__view-image {
   position: absolute;
   width: 433px;
   height: 540px;
@@ -200,7 +200,7 @@
     z-index: 9;
   }
 
-  .open__image {
+  .open__view-image {
     position: absolute;
     width: 240px;
     height: 299px;

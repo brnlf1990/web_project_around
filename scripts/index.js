@@ -98,7 +98,7 @@ function addOpenPopup() {
 
 /* Função de fechar popup imagem */
 function closeImagePopup() {
-  const templateOpenedImage = document.querySelector(".opened__image");
+  const templateOpenedImage = document.querySelector(".open__image");
 
   const templateFade = templateOpenedImage.querySelector(".open__fade");
 
@@ -163,7 +163,7 @@ function removeCard() {
 /* Função de abrir a imagem */
 
 function openImage() {
-  const templateOpenedImage = document.querySelector(".opened__image");
+  const templateOpenedImage = document.querySelector(".open__image");
   const templateContainerImage = templateOpenedImage.querySelector(
     ".open__container-image"
   );
@@ -178,7 +178,8 @@ function openImage() {
     const closeBtn = templateContainerImage.querySelector(
       ".open__close-button"
     );
-    const templateImage = templateContainerImage.querySelector(".open__image");
+    const templateImage =
+      templateContainerImage.querySelector(".open__view-image");
 
     const imageSrc = image.getAttribute("src");
 
