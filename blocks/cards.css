@@ -91,11 +91,11 @@
   opacity: 0.3;
 }
 
-.open__image {
+.modal__image {
   display: none;
 }
 
-.open__container-image {
+.modal__container-image {
   position: fixed;
   display: flex;
   top: 50%;
@@ -111,7 +111,7 @@
   align-items: center;
 }
 
-.open__close-button {
+.modal__close-button {
   position: absolute;
   bottom: 133%;
   left: 101%;
@@ -121,12 +121,12 @@
   cursor: pointer;
 }
 
-.open__close-image {
+.modal__close-image {
   width: 100%;
   height: 100%;
 }
 
-.open__fade {
+.modal__fade {
   position: fixed;
   width: 100%;
   height: 100%;
@@ -134,13 +134,13 @@
   z-index: 9;
 }
 
-.open__view-image {
+.modal__view-image {
   position: absolute;
   width: 433px;
   height: 540px;
 }
 
-.open__image-title {
+.modal__image-title {
   position: absolute;
   top: 443px;
   left: 10px;
@@ -192,7 +192,7 @@
     align-items: center;
   }
 
-  .open__fade {
+  .modal__fade {
     position: fixed;
     width: 100%;
     height: 100%;
@@ -200,13 +200,13 @@
     z-index: 9;
   }
 
-  .open__view-image {
+  .modal__view-image {
     position: absolute;
     width: 240px;
     height: 299px;
   }
 
-  .open__image-title {
+  .modal__image-title {
     position: absolute;
     top: 310px;
     left: 10px;
@@ -219,7 +219,7 @@
     color: #ffffff;
   }
 
-  .open__button {
+  .modal__button {
     position: absolute;
     bottom: 100%;
     left: 101%;
