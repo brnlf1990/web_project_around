@@ -73,11 +73,6 @@
     center no-repeat;
 }
 
-.template__container-image {
-  position: fixed;
-  display: flex;
-}
-
 .templates-popup__close-button {
   position: fixed;
   bottom: 84%;
