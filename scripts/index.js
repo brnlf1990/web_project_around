@@ -73,8 +73,8 @@ function arrayCardAdd() {
 }
 
 /* Função de abrir do edit popup */
-function modalEdtPopup() {
-  popup.classList.add("popup__modaled");
+function openEdtPopup() {
+  popup.classList.add("popup__opened");
   fade.classList.add("popup__fade");
   closeBtn.addEventListener("click", closeEditPopup);
   fade.addEventListener("click", closeEditPopup);
@@ -83,14 +83,14 @@ function modalEdtPopup() {
 
 /* Função de fechar do edit popup */
 function closeEditPopup() {
-  popup.classList.remove("popup__modaled");
+  popup.classList.remove("popup__opened");
   fade.classList.remove("popup__fade");
   closeBtn.removeEventListener("click", closeEditPopup);
   fade.removeEventListener("click", closeEditPopup);
 }
 /* Função de abrir janela do add popup */
-function addmodalPopup() {
-  addPopup.classList.add("add-popup__modaled");
+function addOpenPopup() {
+  addPopup.classList.add("add-popup__opened");
   addFade.classList.add("add-popup__fade");
   addCloseButton.addEventListener("click", addClosePopup);
   addFade.addEventListener("click", addClosePopup);
@@ -98,16 +98,18 @@ function addmodalPopup() {
 
 /* Função de fechar popup imagem */
 function closeImagePopup() {
-  const templatemodaledImage = document.querySelector(".modal__image");
+  const templateOpenedImage = document.querySelector(".template__open-image");
+  const templateContainerImage = templateOpenedImage.querySelector(
+    ".template__container-image"
+  );
+  const templateFade = templateOpenedImage.querySelector(".template__fade");
 
-  const templateFade = templatemodaledImage.querySelector(".modal__fade");
-
-  templatemodaledImage.classList.remove("modal__container-image");
+  templateOpenedImage.classList.remove("template__container-image");
 }
 
 /* Função de fechar do add popup */
 function addClosePopup() {
-  addPopup.classList.remove("add-popup__modaled");
+  addPopup.classList.remove("add-popup__opened");
   addFade.classList.remove("add-popup__fade");
   addCloseButton.removeEventListener("click", addClosePopup);
   addFade.addEventListener("click", addClosePopup);
@@ -162,36 +164,34 @@ function removeCard() {
 
 /* Função de abrir a imagem */
 
-function modalImage() {
-  const templatemodaledImage = document.querySelector(".modal__image");
-  const templateContainerImage = templatemodaledImage.querySelector(
-    ".modal__container-image"
+function openImage() {
+  const templateOpenedImage = document.querySelector(".template__open-image");
+  const templateContainerImage = templateOpenedImage.querySelector(
+    ".template__container-image"
   );
   const cardsContainer = document.querySelector(".cards");
   const cards = cardsContainer.querySelectorAll(".templates__card");
   cards.forEach((card) => {
     const image = card.querySelector(".templates-card__image");
     const title = card.querySelector(".templates__card__description");
-    const fadeClose = templatemodaledImage.querySelector(".modal__fade");
+    const fadeClose = templateOpenedImage.querySelector(".template__fade");
     const templateImageTitle = templateContainerImage.querySelector(
-      ".modal__image-title"
+      ".template__open-image-title"
     );
     const closeBtn = templateContainerImage.querySelector(
-      ".modal__close-button"
+      ".template__close-button"
     );
     const templateImage =
-      templateContainerImage.querySelector(".modal__view-image");
+      templateContainerImage.querySelector(".template__image");
 
     const imageSrc = image.getAttribute("src");
 
     image.addEventListener("click", () => {
-      templatemodaledImage.classList.add("modal__container-image");
-      templatemodaledImage.classList.add("modal__fade");
+      templateOpenedImage.classList.add("template__container-image");
+      templateOpenedImage.classList.add("template__fade");
       templateImage.setAttribute("src", imageSrc);
       templateImageTitle.textContent = title.textContent;
-      templateImage.setAttribute("alt", templateImageTitle.textContent);
       closeBtn.addEventListener("click", closeImagePopup);
-      closeBtn.removeEventListener("click", closeImagePopup);
       fadeClose.addEventListener("click", closeImagePopup);
     });
   });
@@ -201,14 +201,14 @@ function modalImage() {
 arrayCardAdd();
 editEnableVal();
 document.addEventListener("DOMContentLoaded", function () {
-  modalImage();
+  openImage();
 });
 
 /* Listener do botao de abrir edit popup */
-editButton.addEventListener("click", modalEdtPopup);
+editButton.addEventListener("click", openEdtPopup);
 
 /* Listener do botao de abrid add popup */
-addButton.addEventListener("click", addmodalPopup);
+addButton.addEventListener("click", addOpenPopup);
 
 /* Listener do submit do editpopup */
 formElement.addEventListener("submit", (event) => {
@@ -227,5 +227,5 @@ formElementCard.addEventListener("submit", (evt) => {
   addClosePopup();
   imageLink.value = "";
   titleName.value = "";
-  modalImage();
+  openImage();
 });
