@@ -12,6 +12,13 @@ O popup foi programado com JavaScript para acionar o botão de editar e abrir o 
 
 Tive problemas com botão de salvar, pois, não estava sendo salvo os novos inputs. Isso aconteceu por conflito de variaveis com mesmo nome em funções diferentes. Para resolver isso foi utilizado um if e os valores dos campos de entrada serão atualizados apenas quando a janela popup for aberta, garantindo que os valores inseridos pelo usuário sejam refletidos nos campos de entrada.
 
+Edit:
+Código restruturado com Orientação a Objetos.
+
+As classes Form e Card foram transformadas em Classes para maior aproveitamento do código e organização do mesmo.
+
+Tive problemas com os inputs, aparentemente, JavaScript não lê um objeto com
+essa sintaxe `.${input.id}-error` quando insiro como parâmetro, precisei colocar explicitamente dentro da classe para o código iterar sobre todos os inputs.
 Obrigado.
 
 https://brnlf1990.github.io/web_project_around/
