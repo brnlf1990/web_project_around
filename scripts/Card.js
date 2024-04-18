@@ -1,4 +1,3 @@
-const elCard = document.querySelector(".cards");
 const template = document.querySelector(".templates__cards-container").content;
 
 export class Card {

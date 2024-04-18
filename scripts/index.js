@@ -2,7 +2,7 @@ import { FormValidator } from "./FormValidator.js";
 import { Card } from "./Card.js";
 import { closeEditPopup } from "./utils.js";
 import { addClosePopup } from "./utils.js";
-
+import { openImage } from "./utils.js";
 const initialCards = [
   {
     name: "Vale de Yosemite",
@@ -37,10 +37,9 @@ const nameInput = document.querySelector("#popup__name-insert");
 const aboutInput = document.querySelector("#popup__aboutMe-insert");
 
 /* Variaveis para cards*/
-const elCard = document.querySelector(".cards");
+const elCard = document.querySelector(".templates");
 const template = document.querySelector(".templates__cards-container").content;
 const formElementCard = document.querySelector(".add-popup__form");
-const input = document.querySelector(".popup__form-input");
 
 /* Função do submit do edit popup */
 
@@ -81,9 +80,9 @@ formElementCard.addEventListener("submit", (evt) => {
 function arrayCardAdd() {
   template.innerHTML = "";
   initialCards.forEach((card) => {
-    const imageEl = new Card(card, ".templates__card");
+    const imageElement = new Card(card, ".templates__card");
 
-    const cardElement = imageEl.generateCard();
+    const cardElement = imageElement.generateCard();
 
     elCard.append(cardElement);
   });
@@ -116,3 +115,5 @@ new FormValidator(
   },
   addFormElment
 ).enableValidation();
+
+openImage();

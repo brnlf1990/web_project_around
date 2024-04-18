@@ -34,6 +34,7 @@
   line-height: 29px;
   color: #000000;
   padding-right: 48%;
+  padding-left: 10%;
 }
 
 .popup__form {
@@ -41,6 +42,7 @@
   height: 80%;
   flex-direction: column;
   justify-content: space-around;
+  align-items: center;
 }
 
 .popup__submit-button {
@@ -51,6 +53,7 @@
   background-color: #000000;
   color: white;
   font-size: 18px;
+  border: none;
 }
 
 .popup__form-input {

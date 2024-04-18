@@ -1,5 +1,3 @@
-import { FormValidator } from "./FormValidator.js";
-
 const editButton = document.querySelector(".profile__info-edit-button");
 const popup = document.querySelector(".popup");
 const fade = document.querySelector(".popup__fade");
@@ -9,6 +7,7 @@ const addPopup = document.querySelector(".add-popup");
 const addFade = document.querySelector(".add-popup__fade");
 const addCloseButton = document.querySelector(".add-popup__close-button");
 const addButton = document.querySelector(".profile__add-button-icon");
+const addFormElment = document.querySelector(".add-popup__form");
 /* Função de abrir do edit popup */
 function openEdtPopup() {
   popup.classList.add("popup__opened");
@@ -18,11 +17,16 @@ function openEdtPopup() {
 }
 
 /* Função de fechar do edit popup */
-export function closeEditPopup() {
+export function closeEditPopup(evt) {
   popup.classList.remove("popup__opened");
   fade.classList.remove("popup__fade");
   closeBtn.removeEventListener("click", closeEditPopup);
   fade.removeEventListener("click", closeEditPopup);
+  formElement.addEventListener("keydown", function escClose(evt) {
+    if (evt.key === "Escape") {
+      closeEditPopup();
+    }
+  });
 }
 
 /* Função de abrir janela do add popup */
@@ -31,6 +35,11 @@ function addOpenPopup() {
   addFade.classList.add("add-popup__fade");
   addCloseButton.addEventListener("click", addClosePopup);
   addFade.addEventListener("click", addClosePopup);
+  addFormElment.addEventListener("keydown", function escClose(evt) {
+    if (evt.key === "Escape") {
+      addClosePopup();
+    }
+  });
 }
 
 /* Função de fechar popup imagem */
@@ -51,19 +60,20 @@ export function addClosePopup() {
 
 /* Função de abrir a imagem */
 
-function openImage() {
+export function openImage() {
   const templateOpenedImage = document.querySelector(".view-image");
   const templateContainerImage = templateOpenedImage.querySelector(
     ".view-image__container-image"
   );
-  const cardsContainer = document.querySelector(".cards");
+
+  const cardsContainer = document.querySelector(".templates");
   const cards = cardsContainer.querySelectorAll(".templates__card");
   cards.forEach((card) => {
     const image = card.querySelector(".templates-card__image");
     const title = card.querySelector(".templates__card__description");
     const fadeClose = templateOpenedImage.querySelector(".view-image__fade");
     const templateImageTitle =
-      templateContainerImage.querySelector(".view-image-title");
+      templateContainerImage.querySelector(".view-image__title");
     const closeBtn = templateContainerImage.querySelector(
       ".view-image__close-button"
     );
@@ -81,11 +91,13 @@ function openImage() {
       fadeClose.addEventListener("click", closeImagePopup);
     });
   });
-}
 
-document.addEventListener("DOMContentLoaded", function () {
-  openImage();
-});
+  document.addEventListener("keydown", (evt) => {
+    if (evt.key === "Escape") {
+      closeImagePopup();
+    }
+  });
+}
 
 /* Listener do botao de abrir edit popup */
 editButton.addEventListener("click", openEdtPopup);
