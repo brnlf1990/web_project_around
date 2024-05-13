@@ -15,7 +15,7 @@
     <div class="page">
       <header class="header">
         <img
-          src="./images/header_title.jpg"
+          src= "<%= require('./images/header_title.jpg')%>"
           alt="header title image"
           class="header__image"
         />
@@ -26,7 +26,7 @@
           <div class="profile__container">
             <div class="profile__avatar">
               <img
-                src="./images/profile_image.jpeg"
+                src="<%=require('./images/profile_image.jpeg')%>"
                 alt="profile image"
                 class="profile__avatar-image"
               />
@@ -42,7 +42,7 @@
             </div>
             <button class="profile__info-edit-button">
               <img
-                src="./images/edit_name.jpg"
+                src="<%=require('./images/edit_name.jpg')%>"
                 alt="pencil image"
                 class="profile__info-edit-button-image"
               />
@@ -50,7 +50,7 @@
 
             <button class="profile__add-button">
               <img
-                src="./images/add__button_icon.jpg"
+                src="<%=require('./images/add__button_icon.jpg')%>"
                 alt="add icon"
                 class="profile__add-button-icon"
               />
@@ -62,7 +62,7 @@
             <div class="templates__card">
               <img alt="card images" class="templates-card__image" />
               <button class="templates__card_remove-button">
-                <img src="./images/trash.png" alt="trash bucket image" />
+                <img src="<%=require('./images/trash.png')%>" alt="trash bucket image" />
               </button>
               <div class="templates__card__description-container">
                 <h2 class="templates__card__description"></h2>
@@ -71,29 +71,16 @@
             </div>
           </template>
         </section>
-        <div class="view-image">
-          <div class="view-image__fade"></div>
-          <div class="view-image__container-image">
-            <span class="view-image__close-button"
-              ><img
-                src="./images/Close_Icon.png"
-                class="view-image__close-image"
-                alt="close image"
-            /></span>
-            <img src="#" alt="#" class="view-image__image" />
 
-            <span class="view-image__title"></span>
-          </div>
+        
         </div>
       </main>
       <footer class="footer">© 2024 Around The U.S.</footer>
       <div class="popup">
-        <div class="popup__fade"></div>
-
-        <div class="popup__opened">
+        <div class="popup__container">
           <span class="popup__close-button"
             ><img
-              src="./images/Close_Icon.png"
+              src="<%=require('./images/Close_Icon.png')%>"
               class="popup__close-image"
               alt="close image"
           /></span>
@@ -101,6 +88,7 @@
           <form class="popup__form">
             <input
               type="text"
+              name="name"
               placeholder="Nome"
               class="popup__form-input"
               id="popup__name-insert"
@@ -112,6 +100,7 @@
 
             <input
               type="text"
+              name="about"
               placeholder="Sobre mim"
               class="popup__form-input"
               id="popup__aboutMe-insert"
@@ -132,12 +121,10 @@
         </div>
       </div>
       <div class="popup add-popup">
-        <div class="popup__fade add-popup__fade"></div>
-
-        <div class="popup__opened add-popup__opened">
+        <div class="popup add-popup__container">
           <span class="popup__close-button add-popup__close-button"
             ><img
-              src="./images/Close_Icon.png"
+              src="<%=require('./images/Close_Icon.png')%>"
               class="popup__close-image add-popup__close-image"
               alt="close image"
           /></span>
@@ -145,6 +132,7 @@
           <form class="popup__form add-popup__form" novalidate>
             <input
               type="text"
+              name="title"
               placeholder="Título"
               class="popup__form-input add-popup__form-input"
               id="popup__card-title-insert"
@@ -155,6 +143,7 @@
             <span class="popup__card-title-insert-error"></span>
             <input
               type="url"
+              name="image"
               placeholder="Link da imagem"
               class="popup__form-input add-popup__form-input"
               id="popup__image-link-insert"
@@ -165,8 +154,24 @@
           </form>
         </div>
       </div>
+
+      <div class="popup popup__image">
+        <div class="popup popup__image__fade"></div>
+        <div class="popup popup__image__container">
+
+        <img src="#" alt="#" class="popup popup__image_zoom" />
+
+          <span class="popup__close-button popup__image__close-button"
+            ><img
+              src="<%= require('./images/Close_Icon.png')%>"
+              class="popup popup__image__close-image"
+              alt="close image"
+          /></span>
+
+          <span class="popup popup__image__title"></span>
+        </div>
+      </div>
     </div>
 
-    <script type="module" src="./scripts/index.js"></script>
   </body>
 </html>

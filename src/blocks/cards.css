@@ -45,7 +45,7 @@
 }
 
 .templates__card-button {
-  background-image: url(/images/Vector.jpg);
+  background-image: url(../images/Vector.jpg);
   background-color: white;
   background-repeat: no-repeat;
   background-size: 100%;
@@ -91,29 +91,9 @@
   opacity: 0.3;
 }
 
-.view-image {
-  display: none;
-}
-
-.view-image__container-image {
-  position: fixed;
-  display: flex;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  flex-direction: column;
-  justify-content: space-around;
-  width: 430px;
-  height: 330px;
-  border-radius: 10px;
-  background: white;
-  z-index: 10;
-  align-items: center;
-}
-
-.view-image__close-button {
+.popup__image__close-button {
   position: absolute;
-  bottom: 133%;
+  bottom: 101%;
   left: 101%;
   color: white;
   width: 40px;
@@ -121,28 +101,32 @@
   cursor: pointer;
 }
 
-.view-image__close-image {
+.popup__image__close-image {
   width: 100%;
   height: 100%;
 }
 
-.view-image__fade {
+.popup__image__fade {
   position: fixed;
-  width: 100%;
-  height: 100%;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
   background-color: rgba(0, 0, 0, 0.6);
   z-index: 9;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
 }
 
-.view-image__image {
-  position: absolute;
-  width: 433px;
-  height: 540px;
+.popup__image__fade.active {
+  opacity: 1;
+  visibility: visible;
 }
 
-.view-image__title {
+.popup__image__title {
   position: absolute;
-  top: 443px;
+  top: 544px;
   left: 10px;
   font-family: "Inter";
   font-style: normal;
@@ -162,6 +146,16 @@
     margin: auto;
     row-gap: 20px;
     column-gap: 17px;
+  }
+
+  .templates {
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 880px;
+    margin: auto;
+    row-gap: 20px;
+    column-gap: 17px;
+    justify-content: space-around;
   }
 
   .templates__card {

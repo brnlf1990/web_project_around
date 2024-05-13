@@ -21,15 +21,18 @@
 
 .profile__info-name {
   font-style: normal;
+  width: 355px;
   font-weight: 500;
   font-size: 42px;
   line-height: 114%;
   overflow: hidden;
   text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .profile__info-content {
   font-style: normal;
+  width: 220px;
   font-weight: 400;
   font-size: 18px;
   line-height: 100%;
@@ -101,7 +104,7 @@
   .profile__info {
     grid-area: 2 / 2 / 3 / 2;
     display: flex;
-    justify-content: center;
+    justify-content: flex-end;
     flex-wrap: wrap;
   }
 
@@ -131,12 +134,13 @@
   }
 
   .profile__add-button {
-    grid-area: 5 / 3 / 5 / 3;
+    grid-area: 5 / 1 / 5 / 3;
     width: 282px;
     padding: 0;
-    justify-self: end;
+    justify-self: center;
     justify-content: center;
     align-items: center;
+    margin-left: 60px;
   }
   .profile__add-button-icon {
     background-position: center;

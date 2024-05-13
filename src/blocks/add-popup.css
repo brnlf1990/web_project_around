@@ -1,30 +1,9 @@
-.add-popup {
-  display: none;
-}
 .add-popup__fade {
   position: fixed;
-
   width: 100vw;
   height: 100vh;
   background-color: rgba(0, 0, 0, 0.6);
   z-index: 9;
-}
-
-.add-popup__opened {
-  position: fixed;
-  display: flex;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  flex-direction: column;
-  justify-content: space-around;
-  width: 430px;
-  max-width: 100%;
-  height: 330px;
-  border-radius: 10px;
-  background: white;
-  z-index: 10;
-  align-items: center;
 }
 
 .add-popup__title {
@@ -34,13 +13,6 @@
   line-height: 29px;
   color: #000000;
   padding-right: 48%;
-}
-
-.add-popup__form {
-  display: flex;
-  height: 80%;
-  flex-direction: column;
-  justify-content: space-around;
 }
 
 .add-popup__submit-button {
