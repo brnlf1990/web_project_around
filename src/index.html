@@ -8,7 +8,6 @@
     <meta name="keywords" content="Around The U.S." />
 
     <title>Around The U.S.</title>
-    <link rel="stylesheet" href="./pages/index.css" />
     <link rel="stylesheet" href="favicon.ico" />
   </head>
   <body class="body">
@@ -119,23 +118,24 @@
             </button>
           </form>
         </div>
-      </div>
 
-      <div class="popup popup__image">
-        <div class="popup__image-fade"></div>
-        <div class="popup__image-container">
-          <img src="#" alt="#" class="popup__image-zoom" />
+        <div class="popup__image">
+          <div class="popup__image-fade"></div>
+          <div class="popup__image-container">
+            <img src="#" alt="#" class="popup__image-zoom" />
 
-          <span class="popup__image-close-button popup__close-button"
-            ><img
-              src="<%= require('./images/Close_Icon.png')%>"
-              class="popup__image-close-image"
-              alt="close image"
-          /></span>
+            <span class="popup__image-close-button popup__close-button"
+              ><img
+                src="<%= require('./images/Close_Icon.png')%>"
+                class="popup__image-close-image"
+                alt="close image"
+            /></span>
 
-          <span class="popup__image-title"></span>
+            <span class="popup__image-title"></span>
+          </div>
         </div>
       </div>
+
       <div class="popup add-popup">
         <div class="popup add-popup__container">
           <span class="popup__close-button add-popup__close-button"
