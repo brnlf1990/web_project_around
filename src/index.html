@@ -119,6 +119,21 @@
             </button>
           </form>
         </div>
+        <div class="popup popup__image">
+          <div class="popup popup__image__fade"></div>
+          <div class="popup popup__image__container">
+            <img src="#" alt="#" class="popup popup__image_zoom" />
+
+            <span class="popup__close-button popup__image__close-button"
+              ><img
+                src="<%= require('./images/Close_Icon.png')%>"
+                class="popup popup__image__close-image"
+                alt="close image"
+            /></span>
+
+            <span class="popup popup__image__title"></span>
+          </div>
+        </div>
       </div>
       <div class="popup add-popup">
         <div class="popup add-popup__container">
@@ -152,22 +167,6 @@
             <span class="popup__link-insert-error"></span>
             <button type="submit" class="popup__submit-button">Criar</button>
           </form>
-        </div>
-      </div>
-
-      <div class="popup popup__image">
-        <div class="popup popup__image__fade"></div>
-        <div class="popup popup__image__container">
-          <img src="#" alt="#" class="popup popup__image_zoom" />
-
-          <span class="popup__close-button popup__image__close-button"
-            ><img
-              src="<%= require('./images/Close_Icon.png')%>"
-              class="popup popup__image__close-image"
-              alt="close image"
-          /></span>
-
-          <span class="popup popup__image__title"></span>
         </div>
       </div>
     </div>
