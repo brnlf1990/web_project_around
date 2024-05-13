@@ -38,7 +38,7 @@ formElementCard.addEventListener("submit", (evt) => {
 });
 
 /* Adição dos cards inicias/ abrir popupimagem*/
-const popupImage = new PopupWithImage(".popup__image__container");
+const popupImage = new PopupWithImage(".popup__image-container");
 const section = new Section(
   {
     items: initialCards,

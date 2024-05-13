@@ -1,4 +1,4 @@
-const fade = document.querySelector(".popup__image__fade");
+const fade = document.querySelector(".popup__image-fade");
 
 export class Popup {
   constructor(popupElements) {

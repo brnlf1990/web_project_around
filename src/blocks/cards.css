@@ -91,52 +91,6 @@
   opacity: 0.3;
 }
 
-.popup__image__close-button {
-  position: absolute;
-  bottom: 101%;
-  left: 101%;
-  color: white;
-  width: 40px;
-  height: 40px;
-  cursor: pointer;
-}
-
-.popup__image__close-image {
-  width: 100%;
-  height: 100%;
-}
-
-.popup__image__fade {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  background-color: rgba(0, 0, 0, 0.6);
-  z-index: 9;
-  opacity: 0;
-  visibility: hidden;
-  transition: opacity 0.3s ease, visibility 0.3s ease;
-}
-
-.popup__image__fade.active {
-  opacity: 1;
-  visibility: visible;
-}
-
-.popup__image__title {
-  position: absolute;
-  top: 544px;
-  left: 10px;
-  font-family: "Inter";
-  font-style: normal;
-  font-weight: 400;
-  font-size: 12px;
-  line-height: 15px;
-
-  color: #ffffff;
-}
-
 @media screen and (min-width: 320px) and (max-width: 600px) {
   .cards {
     display: flex;
