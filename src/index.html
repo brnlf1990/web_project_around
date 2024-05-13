@@ -15,7 +15,7 @@
     <div class="page">
       <header class="header">
         <img
-          src= "<%= require('./images/header_title.jpg')%>"
+          src="<%= require('./images/header_title.jpg')%>"
           alt="header title image"
           class="header__image"
         />
@@ -62,7 +62,10 @@
             <div class="templates__card">
               <img alt="card images" class="templates-card__image" />
               <button class="templates__card_remove-button">
-                <img src="<%=require('./images/trash.png')%>" alt="trash bucket image" />
+                <img
+                  src="<%=require('./images/trash.png')%>"
+                  alt="trash bucket image"
+                />
               </button>
               <div class="templates__card__description-container">
                 <h2 class="templates__card__description"></h2>
@@ -71,9 +74,6 @@
             </div>
           </template>
         </section>
-
-        
-        </div>
       </main>
       <footer class="footer">© 2024 Around The U.S.</footer>
       <div class="popup">
@@ -158,8 +158,7 @@
       <div class="popup popup__image">
         <div class="popup popup__image__fade"></div>
         <div class="popup popup__image__container">
-
-        <img src="#" alt="#" class="popup popup__image_zoom" />
+          <img src="#" alt="#" class="popup popup__image_zoom" />
 
           <span class="popup__close-button popup__image__close-button"
             ><img
@@ -172,6 +171,5 @@
         </div>
       </div>
     </div>
-
   </body>
 </html>
