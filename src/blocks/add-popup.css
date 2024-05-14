@@ -35,7 +35,7 @@
   border-radius: 2px;
 }
 
-@media screen and (min-width: 320px) and (max-width: 600px) {
+@media screen and (min-width: 320px) and (max-width: 880px) {
   .add-popup__close-button {
     position: absolute;
     bottom: 106%;

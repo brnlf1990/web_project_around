@@ -4,7 +4,6 @@ export class PopupWithImage extends Popup {
   open(image, name) {
     const imageElement = this.popup.querySelector(".popup__image-zoom");
     const nameElement = this.popup.querySelector(".popup__image-title");
-    console.log(image, name);
     imageElement.src = image;
     imageElement.alt = name;
     nameElement.textContent = name;
