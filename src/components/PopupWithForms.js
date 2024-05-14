@@ -11,7 +11,6 @@ export class PopupWithForm extends Popup {
   _getInputValues(form) {
     const data = new FormData(form);
     const dataObject = Object.fromEntries(data.entries());
-
     return dataObject;
   }
 
@@ -20,7 +19,7 @@ export class PopupWithForm extends Popup {
       evt.preventDefault();
       const inputValues = this._getInputValues(evt.target);
       this._handlerFormSubmit(inputValues);
-      console.log(this._handlerFormSubmit);
+
       this.close();
     });
     super.setEventListener();

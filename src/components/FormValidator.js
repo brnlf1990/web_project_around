@@ -37,12 +37,12 @@ export class FormValidator {
     );
     const isFormValid = this._elementForm.checkValidity();
 
-    if (isFormValid) {
-      submitButton.removeAttribute("disabled");
-      submitButton.classList.remove(this._config.inactiveButtonClass);
-    } else {
+    if (!isFormValid) {
       submitButton.setAttribute("disabled", "disabled");
       submitButton.classList.add(this._config.inactiveButtonClass);
+    } else {
+      submitButton.removeAttribute("disabled");
+      submitButton.classList.remove(this._config.inactiveButtonClass);
     }
   }
 }

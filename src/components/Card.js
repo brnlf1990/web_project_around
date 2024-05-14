@@ -1,5 +1,4 @@
 const template = document.querySelector(".templates__cards-container").content;
-console.log(template);
 export class Card {
   constructor(data, { handlerCardClick }, cardSelector) {
     this._image = data.link;

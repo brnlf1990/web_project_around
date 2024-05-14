@@ -22,21 +22,6 @@ import { PopupWithImage } from "./components/PopupWithImage.js";
 import { PopupWithForm } from "./components/PopupWithForms.js";
 import { UserInfo } from "./components/UserInfo.js";
 
-/* submit classe add-card */
-formElementCard.addEventListener("submit", (evt) => {
-  evt.preventDefault();
-  const imageLink = document.querySelector("#popup__image-link-insert");
-  const titleName = document.querySelector("#popup__card-title-insert");
-  const newCard = new Card(
-    { link: imageLink.value, name: titleName.value },
-    ".templates__card"
-  );
-  const insertCard = newCard.generateCard();
-  console.log(insertCard);
-  elementCard.insertBefore(insertCard, elementCard.firstChild);
-  console.log(elementCard.firstChild);
-});
-
 /* Adição dos cards inicias/ abrir popupimagem*/
 const popupImage = new PopupWithImage(".popup__image-container");
 const section = new Section(
@@ -102,7 +87,18 @@ editButton.addEventListener("click", () => {
 });
 
 const popupWithFormAdd = new PopupWithForm((inputValues) => {
-  section.setItem(inputValues);
+  const newCard = new Card(
+    inputValues,
+    {
+      handlerCardClick: (imageSrc, title) => {
+        popupImage.open(imageSrc, title);
+        popupImage.setEventListener();
+      },
+    },
+    ".templates__card"
+  );
+  const cardElment = newCard.generateCard();
+  elementCard.insertBefore(cardElment, elementCard.firstChild);
 }, ".add-popup__container");
 addButton.addEventListener("click", () => {
   popupWithFormAdd.open();
