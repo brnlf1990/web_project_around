@@ -88,7 +88,7 @@ editButton.addEventListener("click", () => {
 
 const popupWithFormAdd = new PopupWithForm((inputValues) => {
   const newCard = new Card(
-    inputValues,
+    { name: inputValues.title, link: inputValues.image },
     {
       handlerCardClick: (imageSrc, title) => {
         popupImage.open(imageSrc, title);
