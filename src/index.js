@@ -7,6 +7,7 @@ import "./blocks/footer.css";
 import "./blocks/popup.css";
 import "./blocks/add-popup.css";
 import { FormValidator } from "./components/FormValidator.js";
+import { Api } from "./components/Api.js";
 import { Card } from "./components/Card.js";
 import { Section } from "./components/Section.js";
 import {
@@ -22,29 +23,42 @@ import { PopupWithImage } from "./components/PopupWithImage.js";
 import { PopupWithForm } from "./components/PopupWithForms.js";
 import { UserInfo } from "./components/UserInfo.js";
 
-/* Adição dos cards inicias/ abrir popupimagem*/
-const popupImage = new PopupWithImage(".popup__image-container");
-const section = new Section(
-  {
-    items: initialCards,
-    renderer: (item) => {
-      const card = new Card(
-        item,
-        {
-          handlerCardClick: (imageSrc, title) => {
-            popupImage.open(imageSrc, title);
-            popupImage.setEventListener();
-          },
-        },
-        ".templates__card"
-      );
-      const cardElement = card.generateCard();
-      section.setItem(cardElement);
-    },
+/* Chamando API*/
+
+const api = new Api({
+  baseUrl: "https://around.nomoreparties.co/v1/web-ptbr-cohort-10",
+  headers: {
+    authorization: "ddda171a-2bb7-46e7-9726-3c7c72f035dd",
+    "Content-Type": "application/json",
   },
-  ".templates"
-);
-section.renderItems();
+});
+
+/* Adição dos cards inicias/ abrir popupimagem com apis*/
+api.getInitialCards().then((cards) => {
+  initialCards = cards;
+
+  const section = new Section(
+    {
+      items: initialCards,
+      renderer: (item) => {
+        const card = new Card(
+          item,
+          {
+            handlerCardClick: (imageSrc, title) => {
+              popupImage.open(imageSrc, title);
+              popupImage.setEventListener();
+            },
+          },
+          ".templates__card"
+        );
+        const cardElement = card.generateCard();
+        section.setItem(cardElement);
+      },
+    },
+    ".templates"
+  );
+  section.renderItems();
+});
 
 /* validação dos inputs do edit form */
 new FormValidator(
@@ -76,6 +90,11 @@ new FormValidator(
 const userInfo = new UserInfo({
   nameProfile: ".profile__info-name",
   aboutProfile: ".profile__info-content",
+});
+
+/* Chamando api*/
+api.getUserInfo().then((user) => {
+  userInfo.setUserInfo(user);
 });
 
 const popupWithFormEdit = new PopupWithForm((data) => {
