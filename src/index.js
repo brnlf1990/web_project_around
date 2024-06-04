@@ -6,12 +6,12 @@ import "./blocks/cards.css";
 import "./blocks/footer.css";
 import "./blocks/popup.css";
 import "./blocks/add-popup.css";
+import "./blocks/popupCardDelete.css";
 import { FormValidator } from "./components/FormValidator.js";
 import { Api } from "./components/Api.js";
 import { Card } from "./components/Card.js";
 import { Section } from "./components/Section.js";
 import {
-  initialCards,
   formElement,
   formElementCard,
   elementCard,
@@ -35,7 +35,7 @@ const api = new Api({
 
 /* Adição dos cards inicias/ abrir popupimagem com apis*/
 api.getInitialCards().then((cards) => {
-  initialCards = cards;
+  const initialCards = cards;
 
   const section = new Section(
     {
@@ -58,6 +58,24 @@ api.getInitialCards().then((cards) => {
     ".templates"
   );
   section.renderItems();
+
+  const popupWithFormAdd = new PopupWithForm((inputValues) => {
+    const newCard = new Card(
+      { name: inputValues.title, link: inputValues.image },
+      {
+        handlerCardClick: (imageSrc, title) => {
+          popupImage.open(imageSrc, title);
+          popupImage.setEventListener();
+        },
+      },
+      ".templates__card"
+    );
+    const cardElment = newCard.generateCard();
+    elementCard.insertBefore(cardElment, elementCard.firstChild);
+  }, ".add-popup__container");
+  addButton.addEventListener("click", () => {
+    popupWithFormAdd.open();
+  });
 });
 
 /* validação dos inputs do edit form */
@@ -86,7 +104,6 @@ new FormValidator(
   addFormElment
 ).enableValidation();
 
-/* Abrir os popups */ /* Listener do submit do editpopup */
 const userInfo = new UserInfo({
   nameProfile: ".profile__info-name",
   aboutProfile: ".profile__info-content",
@@ -98,27 +115,11 @@ api.getUserInfo().then((user) => {
 });
 
 const popupWithFormEdit = new PopupWithForm((data) => {
-  userInfo.setUserInfo(data);
+  api.patchUserInfo(data).then((apiUser) => {
+    userInfo.setUserInfo(apiUser);
+  });
 }, ".popup__container");
 
 editButton.addEventListener("click", () => {
   popupWithFormEdit.open();
-});
-
-const popupWithFormAdd = new PopupWithForm((inputValues) => {
-  const newCard = new Card(
-    { name: inputValues.title, link: inputValues.image },
-    {
-      handlerCardClick: (imageSrc, title) => {
-        popupImage.open(imageSrc, title);
-        popupImage.setEventListener();
-      },
-    },
-    ".templates__card"
-  );
-  const cardElment = newCard.generateCard();
-  elementCard.insertBefore(cardElment, elementCard.firstChild);
-}, ".add-popup__container");
-addButton.addEventListener("click", () => {
-  popupWithFormAdd.open();
 });

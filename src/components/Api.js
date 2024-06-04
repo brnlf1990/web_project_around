@@ -1,3 +1,5 @@
+import { Promise } from "core-js";
+
 export class Api {
   constructor({ baseUrl, headers }) {
     this._baseUrl = baseUrl;
@@ -24,6 +26,18 @@ export class Api {
         return res.json();
       }
 
+      return Promise.reject(`Error: ${res.status}`);
+    });
+  }
+
+  patchUserInfo(userData) {
+    return fetch(`${this._baseUrl}/users/me`, {
+      method: "PATCH",
+      headers: this._headers,
+      body: JSON.stringify(userData),
+    }).then((res) => {
+      if (res.ok) {
+      }
       return Promise.reject(`Error: ${res.status}`);
     });
   }

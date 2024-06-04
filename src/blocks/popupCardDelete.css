@@ -1,0 +1,51 @@
+.card-delete {
+}
+
+.card-delete-form {
+  background: #fff;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  height: 181px;
+  justify-content: center;
+  left: 50%;
+  position: fixed;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 430px;
+  z-index: 10;
+  flex-wrap: wrap;
+  align-content: center;
+}
+
+.card-delete__close-button {
+  top: 297px;
+  color: #fff;
+  cursor: pointer;
+  height: 40px;
+  left: 68%;
+  position: fixed;
+  width: 40px;
+  cursor: pointer;
+}
+
+.card-delete-title {
+  color: black;
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 900;
+  font-size: 24px;
+  line-height: 29px;
+  padding-bottom: 18px;
+}
+
+.card-delete-button {
+  background-color: #000;
+  border: none;
+  width: 430px;
+  color: #fff;
+  font-size: 18px;
+  height: 50px;
+  width: 358px;
+  align-self: center;
+}

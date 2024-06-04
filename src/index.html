@@ -32,12 +32,8 @@
             </div>
 
             <div class="profile__info">
-              <h2 class="profile__info-name" id="profile__info_name">
-                Jacques Cousteau
-              </h2>
-              <h3 class="profile__info-content" id="profile__info_content">
-                Explorador
-              </h3>
+              <h2 class="profile__info-name" id="profile__info_name"></h2>
+              <h3 class="profile__info-content" id="profile__info_content"></h3>
             </div>
             <button class="profile__info-edit-button">
               <img
@@ -169,6 +165,35 @@
             <button type="submit" class="popup__submit-button">Criar</button>
           </form>
         </div>
+      </div>
+      <div class="popup card-delete">
+        <span class="popup__close-button card-delete__close-button"
+          ><img
+            src="<%=require('./images/Close_Icon.png')%>"
+            class="popup__close-image card-delete__close-image"
+            alt="close image"
+        /></span>
+        <form class="popup card-delete-form">
+          <h2 class="popup card-delete-title">Tem certeza?</h2>
+          <button class="popup card-delete-button" type="button">Sim</button>
+        </form>
+      </div>
+
+      <div class="popup photo-update-popup">
+        <span class="popup__close-button photo-update-popup__close-button"
+          ><img
+            src="<%=require('./images/Close_Icon.png')%>"
+            class="popup__close-image photo-update-popup__close-image"
+            alt="close image"
+        /></span>
+        <form class="popup photo-update-popup__form">
+          <h2 class="popup photo-update-popup__title">
+            Alterar a foto do perfil
+          </h2>
+          <button class="popup photo-update-popup__button" type="submit">
+            Sim
+          </button>
+        </form>
       </div>
     </div>
   </body>
