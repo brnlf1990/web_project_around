@@ -167,33 +167,45 @@
         </div>
       </div>
       <div class="popup card-delete">
-        <span class="popup__close-button card-delete__close-button"
-          ><img
-            src="<%=require('./images/Close_Icon.png')%>"
-            class="popup__close-image card-delete__close-image"
-            alt="close image"
-        /></span>
-        <form class="popup card-delete-form">
-          <h2 class="popup card-delete-title">Tem certeza?</h2>
-          <button class="popup card-delete-button" type="button">Sim</button>
-        </form>
+        <div class="popup card-delete__container">
+          <span class="popup__close-button card-delete__close-button"
+            ><img
+              src="<%=require('./images/Close_Icon.png')%>"
+              class="popup__close-image card-delete__close-image"
+              alt="close image"
+          /></span>
+          <form class="popup card-delete-form">
+            <h2 class="popup card-delete-title">Tem certeza?</h2>
+            <button class="popup card-delete-button" type="button">Sim</button>
+          </form>
+        </div>
       </div>
 
       <div class="popup photo-update-popup">
-        <span class="popup__close-button photo-update-popup__close-button"
-          ><img
-            src="<%=require('./images/Close_Icon.png')%>"
-            class="popup__close-image photo-update-popup__close-image"
-            alt="close image"
-        /></span>
-        <form class="popup photo-update-popup__form">
-          <h2 class="popup photo-update-popup__title">
-            Alterar a foto do perfil
-          </h2>
-          <button class="popup photo-update-popup__button" type="submit">
-            Sim
-          </button>
-        </form>
+        <div class="popup photo-update-popup__container">
+          <span class="popup__close-button photo-update-popup__close-button"
+            ><img
+              src="<%=require('./images/Close_Icon.png')%>"
+              class="popup__close-image photo-update-popup__close-image"
+              alt="close image"
+          /></span>
+          <form class="popup photo-update-popup__form">
+            <h2 class="popup photo-update-popup__title">
+              Alterar a foto do perfil
+            </h2>
+            <input
+              type="url"
+              name="image"
+              placeholder="Link da imagem"
+              class="popup__form-input photo-update-popup__form-input"
+              id="popup__link-insert"
+              required
+            />
+            <button class="popup photo-update-popup__button" type="submit">
+              Salvar
+            </button>
+          </form>
+        </div>
       </div>
     </div>
   </body>

@@ -7,6 +7,7 @@ import "./blocks/footer.css";
 import "./blocks/popup.css";
 import "./blocks/add-popup.css";
 import "./blocks/popupCardDelete.css";
+import "./blocks/popupPhotoUpdate.css";
 import { FormValidator } from "./components/FormValidator.js";
 import { Api } from "./components/Api.js";
 import { Card } from "./components/Card.js";
