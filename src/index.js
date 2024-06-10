@@ -59,8 +59,9 @@ api.getInitialCards().then((cards) => {
     ".templates"
   );
   section.renderItems();
-
-  const popupWithFormAdd = new PopupWithForm((inputValues) => {
+});
+const popupWithFormAdd = new PopupWithForm((inputValues) => {
+  api.postNewCard(inputValues).then((newCardData) => {
     const newCard = new Card(
       { name: inputValues.title, link: inputValues.image },
       {
@@ -71,12 +72,13 @@ api.getInitialCards().then((cards) => {
       },
       ".templates__card"
     );
+
     const cardElment = newCard.generateCard();
     elementCard.insertBefore(cardElment, elementCard.firstChild);
-  }, ".add-popup__container");
-  addButton.addEventListener("click", () => {
-    popupWithFormAdd.open();
   });
+}, ".add-popup__container");
+addButton.addEventListener("click", () => {
+  popupWithFormAdd.open();
 });
 
 /* validação dos inputs do edit form */

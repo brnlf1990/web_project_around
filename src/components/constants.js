@@ -11,4 +11,4 @@ export const cardeDeleteButton = document.querySelector(".card-delete-button");
 export const template = document.querySelector(
   ".templates__cards-container"
 ).content;
-export const poppupCardDelete = document.querySelector(".card-delete");
+export const poppupCardDelete = document.querySelector(".card-delete-button");

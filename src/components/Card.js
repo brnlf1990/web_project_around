@@ -1,5 +1,4 @@
-import { template, cardeDeleteButton, poppupCardDelete } from "./constants.js";
-
+const template = document.querySelector(".templates__cards-container").content;
 export class Card {
   constructor(data, { handlerCardClick }, cardSelector) {
     this._image = data.link;
@@ -16,11 +15,6 @@ export class Card {
   }
 
   _handleRemove() {
-    this._element
-      .querySelector(".templates__card_remove-button")
-      .addEventListener("click", () => {
-        poppupCardDelete.classList.add(".popup__opened");
-      });
     this._element.remove();
   }
 
@@ -51,6 +45,7 @@ export class Card {
   generateCard() {
     this._element = this._getTemplate();
     this._element.querySelector(".templates-card__image").src = this._image;
+
     this._element.querySelector(".templates-card__image").alt = this._name;
     this._element.querySelector(".templates__card__description").textContent =
       this._name;
