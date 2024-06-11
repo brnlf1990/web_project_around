@@ -34,17 +34,30 @@
   cursor: pointer;
 }
 .templates__card__description-container {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
+  display: grid;
+  grid-template-areas:
+    "description like-button"
+    ". like-count";
+  grid-template-columns: 86% 7%;
+  grid-template-rows: 95% 11%;
+  grid-column-gap: 10px;
+  align-items: end;
 }
+
 .templates__card__description {
+  grid-area: description;
+  margin: 0;
+  overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
-  overflow: hidden;
+  justify-self: baseline;
+  padding-left: 10%;
+  padding-top: 0%;
+  align-self: end;
 }
 
 .templates__card-button {
+  grid-area: like-button;
   background-image: url(../images/Vector.jpg);
   background-color: white;
   background-repeat: no-repeat;
@@ -55,6 +68,18 @@
   align-self: center;
   cursor: pointer;
   transition: 0.3s;
+}
+
+.templates__card-likes-count {
+  grid-area: like-count;
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 13px;
+  line-height: 16px;
+  text-align: center;
+  color: #000000;
+  margin: 0;
 }
 
 .templates__card_remove-button:hover {

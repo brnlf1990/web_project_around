@@ -23,6 +23,7 @@ import {
 import { PopupWithImage } from "./components/PopupWithImage.js";
 import { PopupWithForm } from "./components/PopupWithForms.js";
 import { UserInfo } from "./components/UserInfo.js";
+import { update } from "lodash";
 
 /* Chamando API*/
 
@@ -37,7 +38,7 @@ const api = new Api({
 /* Adição dos cards inicias/ abrir popupimagem com apis*/
 api.getInitialCards().then((cards) => {
   const initialCards = cards;
-
+  const popupImage = new PopupWithImage(".popup__image-container");
   const section = new Section(
     {
       items: initialCards,
@@ -48,6 +49,21 @@ api.getInitialCards().then((cards) => {
             handlerCardClick: (imageSrc, title) => {
               popupImage.open(imageSrc, title);
               popupImage.setEventListener();
+            },
+            handlerLikeClick: (card) => {
+              const isLiked = card._element
+                .querySelector(".templates__card-button")
+                .classList.contains("templates__card-button-active");
+
+              if (isLiked) {
+                api.unlikeCard(item._id).then((updatedCard) => {
+                  card.updateLikes(updatedCard.likes.length);
+                });
+              } else {
+                api.likeCard(item._id).then((updatedCard) => {
+                  card.updateLikes(updatedCard.likes.length);
+                });
+              }
             },
           },
           ".templates__card"

@@ -1,12 +1,13 @@
 const template = document.querySelector(".templates__cards-container").content;
 export class Card {
-  constructor(data, { handlerCardClick }, cardSelector) {
+  constructor(data, { handlerCardClick, handlerLikeClick }, cardSelector) {
     this._image = data.link;
     this._name = data.name;
+    this._likes = data.likes.length;
     this._cardSelector = cardSelector;
     this._handlerCardClick = handlerCardClick;
+    this._handlerLikeClick = handlerLikeClick;
   }
-
   _getTemplate() {
     const cardElement = template
       .querySelector(this._cardSelector)
@@ -19,6 +20,7 @@ export class Card {
   }
 
   _handleLike() {
+    this._handlerLikeClick(this);
     this._element
       .querySelector(".templates__card-button")
       .classList.toggle("templates__card-button-active");
@@ -37,9 +39,17 @@ export class Card {
         this._handleLike();
       });
 
-    this._element.addEventListener("click", () => {
-      this._handlerCardClick(this._image, this._name);
-    });
+    this._element
+      .querySelector(".templates-card__image")
+      .addEventListener("click", () => {
+        this._handlerCardClick(this._image, this._name);
+      });
+  }
+
+  updateLikes(likesCount) {
+    this._likes = likesCount;
+    this._element.querySelector(".templates__card-likes-count").textContent =
+      this._likes;
   }
 
   generateCard() {
