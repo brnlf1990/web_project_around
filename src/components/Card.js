@@ -1,22 +1,34 @@
 const template = document.querySelector(".templates__cards-container").content;
-export class Card {
-  constructor(data, { handlerCardClick, handlerLikeClick }, cardSelector) {
+import { PopupWithConfirmation } from "./PopupWithConfirmation.js";
+import { cardeDeleteButton } from "./constants.js";
+
+export class Card extends PopupWithConfirmation {
+  constructor(
+    myId,
+    data,
+    { handlerCardClick, handlerLikeClick, handlerDeleteCard },
+
+    cardSelector,
+    popupElements
+  ) {
+    super(popupElements);
     this._image = data.link;
     this._name = data.name;
     this._likes = data.likes.length;
+    this._cardId = data._id;
+    this._ownerId = data.owner._id;
+    this.myId = myId;
     this._cardSelector = cardSelector;
     this._handlerCardClick = handlerCardClick;
     this._handlerLikeClick = handlerLikeClick;
+    this.handlerDeleteCard = handlerDeleteCard;
   }
   _getTemplate() {
     const cardElement = template
       .querySelector(this._cardSelector)
       .cloneNode(true);
-    return cardElement;
-  }
 
-  _handleRemove() {
-    this._element.remove();
+    return cardElement;
   }
 
   _handleLike() {
@@ -26,13 +38,29 @@ export class Card {
       .classList.toggle("templates__card-button-active");
   }
 
+  _removeRemoveImage() {
+    const removeButton = this._element.querySelector(
+      ".templates__card_remove-button"
+    );
+    if (this._ownerId != this.myId) {
+      removeButton.remove();
+    }
+  }
+
   _setEventListener() {
     this._element
       .querySelector(".templates__card_remove-button")
       .addEventListener("click", () => {
-        this._handleRemove();
-      });
+        document
+          .querySelector(".card-delete__container")
+          .classList.add("popup__opened");
 
+        document
+          .querySelector(".card-delete-button")
+          .addEventListener("click", () => {
+            super.deleteConfimation(this._cardId);
+          });
+      });
     this._element
       .querySelector(".templates__card-button")
       .addEventListener("click", () => {
@@ -44,6 +72,11 @@ export class Card {
       .addEventListener("click", () => {
         this._handlerCardClick(this._image, this._name);
       });
+
+    this._removeRemoveImage();
+    //this._element.querySelector("");
+    //super.deleteConfimation();
+    //ADICIONAR ELEMENTOS PARA ATIVAR COM eventListener
   }
 
   updateLikes(likesCount) {
@@ -55,7 +88,8 @@ export class Card {
   generateCard() {
     this._element = this._getTemplate();
     this._element.querySelector(".templates-card__image").src = this._image;
-
+    this._element.setAttribute("id", this._cardId);
+    this._element.setAttribute("ownerId", this._ownerId);
     this._element.querySelector(".templates-card__image").alt = this._name;
     this._element.querySelector(".templates__card__description").textContent =
       this._name;

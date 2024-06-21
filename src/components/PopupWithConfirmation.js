@@ -1,22 +1,15 @@
-import { Popup } from "./Popup.js";
 import { cardeDeleteButton } from "./constants.js";
+import { Popup } from "./Popup.js";
 
 export class PopupWithConfirmation extends Popup {
-  constructor(deleteApi) {
+  constructor(deleteApi, popupElements) {
+    super(popupElements);
     this.deleteApi = deleteApi;
   }
 
-  open() {
-    super.open();
-  }
-
-  deleteConfimation() {
+  deleteConfimation(cardId) {
     cardeDeleteButton.addEventListener("click", () => {
-      this.deleteApi;
+      this.deleteApi(cardId);
     });
   }
 }
-// posso colocar um handlerRemoveCard em um constructor que ira a api para remoção do cartao?
-// Como posso colocar o id correto para apagar o cartao certo
-//talvez possa colocar api aqui e depois  ativar no index dentro de uma instancia
-//do card e colocar a Classe Card para recebe-la

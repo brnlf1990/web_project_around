@@ -38,10 +38,12 @@
   grid-template-areas:
     "description like-button"
     ". like-count";
-  grid-template-columns: 86% 7%;
-  grid-template-rows: 95% 11%;
+  grid-template-columns: 83% 7%;
+  grid-template-rows: 146% 0%;
   grid-column-gap: 10px;
   align-items: end;
+  justify-items: center;
+  justify-content: start;
 }
 
 .templates__card__description {
@@ -80,6 +82,7 @@
   text-align: center;
   color: #000000;
   margin: 0;
+  align-self: center;
 }
 
 .templates__card_remove-button:hover {

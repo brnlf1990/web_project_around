@@ -28,6 +28,7 @@ export class Api {
       return Promise.reject(`Error: ${res.status}`);
     });
   }
+
   getUserInfo() {
     return fetch(`${this._baseUrl}/users/me`, {
       headers: this._headers,
@@ -69,12 +70,11 @@ export class Api {
       return Promise.reject(`Error: ${res.status}`);
     });
   }
-  //preciso colcoar o card  Id dentro do {cardId}
+
   deleteCard(cardId) {
     return fetch(`${this._baseUrl}/cards/${cardId}`, {
       method: "DELETE",
       headers: this._headers,
-      body: JSON.stringify(userData),
     }).then((res) => {
       if (res.ok) {
         return res.json();

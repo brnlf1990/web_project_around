@@ -22,6 +22,7 @@ import {
 } from "./components/constants.js";
 import { PopupWithImage } from "./components/PopupWithImage.js";
 import { PopupWithForm } from "./components/PopupWithForms.js";
+import { PopupWithConfirmation } from "./components/PopupWithConfirmation.js";
 import { UserInfo } from "./components/UserInfo.js";
 import { update } from "lodash";
 
@@ -39,11 +40,13 @@ const api = new Api({
 api.getInitialCards().then((cards) => {
   const initialCards = cards;
   const popupImage = new PopupWithImage(".popup__image-container");
+  const popupWithConfirmation = new PopupWithConfirmation();
   const section = new Section(
     {
       items: initialCards,
       renderer: (item) => {
         const card = new Card(
+          "c5546425fb70198d03ee20bd",
           item,
           {
             handlerCardClick: (imageSrc, title) => {
@@ -65,9 +68,18 @@ api.getInitialCards().then((cards) => {
                 });
               }
             },
+            handlerDeleteCard: (cardId) => {
+              document
+                .querySelector(".card-delete-button")
+                .addEventListener("click", () => {
+                  console.log("acontenceu algo", cardId);
+                  api.deleteCard(cardId);
+                });
+            },
           },
           ".templates__card"
         );
+
         const cardElement = card.generateCard();
         section.setItem(cardElement);
       },
@@ -77,7 +89,7 @@ api.getInitialCards().then((cards) => {
   section.renderItems();
 });
 const popupWithFormAdd = new PopupWithForm((inputValues) => {
-  api.postNewCard(inputValues).then((newCardData) => {
+  api.postNewCard(inputValues).then(() => {
     const newCard = new Card(
       { name: inputValues.title, link: inputValues.image },
       {
