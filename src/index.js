@@ -69,11 +69,24 @@ api.getInitialCards().then((cards) => {
               }
             },
             handlerDeleteCard: (cardId) => {
+              const confirmationButton = document.querySelector(
+                ".card-delete-button"
+              );
+
               document
-                .querySelector(".card-delete-button")
-                .addEventListener("click", () => {
-                  console.log("acontenceu algo", cardId);
-                  api.deleteCard(cardId);
+                .querySelector(".card-delete-form")
+                .addEventListener("submit", (event) => {
+                  event.preventDefault();
+                  if (event.target.contains(confirmationButton)) {
+                    api.deleteCard(cardId).then(() => {
+                      card._element.remove();
+                      popupWithConfirmation.setEventListener();
+
+                      popupImage.setEventListener();
+                    });
+                  } else {
+                    popupImage.close();
+                  }
                 });
             },
           },

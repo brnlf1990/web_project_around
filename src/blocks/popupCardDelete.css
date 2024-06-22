@@ -23,14 +23,13 @@
 }
 
 .card-delete__close-button {
-  top: 297px;
   color: #fff;
   cursor: pointer;
   height: 40px;
-  left: 68%;
+  left: 99%;
   position: fixed;
+  bottom: 180px;
   width: 40px;
-  cursor: pointer;
 }
 
 .card-delete-title {
