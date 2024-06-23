@@ -1,7 +1,7 @@
 const template = document.querySelector(".templates__cards-container").content;
-const fade = document.querySelector(".popup__image-fade");
+import { fade } from "./constants.js";
+
 import { PopupWithConfirmation } from "./PopupWithConfirmation.js";
-import { cardeDeleteButton } from "./constants.js";
 
 export class Card extends PopupWithConfirmation {
   constructor(
@@ -55,7 +55,10 @@ export class Card extends PopupWithConfirmation {
         document
           .querySelector(".card-delete__container")
           .classList.add("popup__opened");
+
         fade.classList.add("active");
+        super._handleEscClose();
+
         this.handlerDeleteCard(this._cardId);
       });
     this._element
@@ -71,6 +74,7 @@ export class Card extends PopupWithConfirmation {
       });
 
     this._removeRemoveImage();
+    super.setEventListener();
   }
 
   updateLikes(likesCount) {

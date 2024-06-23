@@ -17,8 +17,8 @@ export class Api {
       return Promise.reject(`Error: ${res.status}`);
     });
   }
-  get(path) {
-    return fetch(`${this._baseUrl}/${path}`, {
+  userAvatar() {
+    return fetch(`${this._baseUrl}/user/me/avatar`, {
       headers: this._headers,
     }).then((res) => {
       if (res.ok) {

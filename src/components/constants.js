@@ -12,3 +12,4 @@ export const template = document.querySelector(
   ".templates__cards-container"
 ).content;
 export const poppupCardDelete = document.querySelector(".card-delete-button");
+export const fade = document.querySelector(".popup__image-fade");

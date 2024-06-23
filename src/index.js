@@ -19,6 +19,7 @@ import {
   addFormElment,
   addButton,
   editButton,
+  fade,
 } from "./components/constants.js";
 import { PopupWithImage } from "./components/PopupWithImage.js";
 import { PopupWithForm } from "./components/PopupWithForms.js";
@@ -40,7 +41,9 @@ const api = new Api({
 api.getInitialCards().then((cards) => {
   const initialCards = cards;
   const popupImage = new PopupWithImage(".popup__image-container");
-  const popupWithConfirmation = new PopupWithConfirmation();
+  const popupWithConfirmation = new PopupWithConfirmation(
+    ".card-delete__container"
+  );
   const section = new Section(
     {
       items: initialCards,
@@ -80,9 +83,10 @@ api.getInitialCards().then((cards) => {
                   if (event.target.contains(confirmationButton)) {
                     api.deleteCard(cardId).then(() => {
                       card._element.remove();
-                      popupWithConfirmation.setEventListener();
-
-                      popupImage.setEventListener();
+                      document
+                        .querySelector(".card-delete__container")
+                        .classList.remove("popup__opened");
+                      fade.classList.remove("active");
                     });
                   } else {
                     popupImage.close();
@@ -166,4 +170,8 @@ const popupWithFormEdit = new PopupWithForm((data) => {
 
 editButton.addEventListener("click", () => {
   popupWithFormEdit.open();
+});
+
+const popupChangeAvatar = new PopupWithForm(() => {
+  api.userAvatar(data).then((link) => {});
 });
