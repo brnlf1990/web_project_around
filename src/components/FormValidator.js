@@ -7,7 +7,6 @@ export class FormValidator {
     const inputs = this._elementForm.querySelectorAll(
       this._config.inputSelector
     );
-
     inputs.forEach((input) => this._setEventListeners(input));
   }
 

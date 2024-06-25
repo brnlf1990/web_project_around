@@ -20,6 +20,8 @@ import {
   addButton,
   editButton,
   fade,
+  avatarChangeButton,
+  avatarPhotoForm,
 } from "./components/constants.js";
 import { PopupWithImage } from "./components/PopupWithImage.js";
 import { PopupWithForm } from "./components/PopupWithForms.js";
@@ -172,6 +174,29 @@ editButton.addEventListener("click", () => {
   popupWithFormEdit.open();
 });
 
-const popupChangeAvatar = new PopupWithForm(() => {
-  api.userAvatar(data).then((link) => {});
+const popupChangeAvatar = new PopupWithForm((imageLink) => {
+  api
+    .userAvatar(imageLink)
+    .then((link) => {
+      const avatarImage = document.querySelector(".profile__avatar-image");
+      avatarImage.src = link.avatar;
+    })
+    .catch((err) => {
+      console.error(err);
+    });
+}, ".photo-update-popup__container");
+avatarChangeButton.addEventListener("click", () => {
+  popupChangeAvatar.open();
 });
+
+new FormValidator(
+  {
+    formSelector: ".photo-update-popup__form",
+    inputSelector: ".photo-update-popup__form-input",
+    submitButtonSelector: ".photo-update-popup__button",
+    inactiveButtonClass: "popup__submit-button-error",
+    popupFormInputError: "popup__form-input-error",
+    inputErrorClass: "popup__insert-error-active",
+  },
+  avatarPhotoForm
+).enableValidation();

@@ -58,3 +58,7 @@
   justify-self: auto;
   align-self: center;
 }
+
+.popup__opened {
+  visibility: visible;
+}

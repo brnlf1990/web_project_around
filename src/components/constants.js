@@ -13,3 +13,8 @@ export const template = document.querySelector(
 ).content;
 export const poppupCardDelete = document.querySelector(".card-delete-button");
 export const fade = document.querySelector(".popup__image-fade");
+
+export const avatarChangeButton = document.querySelector(".profile__avatar");
+export const avatarPhotoForm = document.querySelector(
+  ".photo-update-popup__form"
+);

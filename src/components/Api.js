@@ -17,9 +17,14 @@ export class Api {
       return Promise.reject(`Error: ${res.status}`);
     });
   }
-  userAvatar() {
-    return fetch(`${this._baseUrl}/user/me/avatar`, {
+  userAvatar(inputValues) {
+    console.log(inputValues.image);
+    return fetch(`${this._baseUrl}/users/me/avatar`, {
+      method: "PATCH",
       headers: this._headers,
+      body: JSON.stringify({
+        avatar: inputValues.image,
+      }),
     }).then((res) => {
       if (res.ok) {
         return res.json();

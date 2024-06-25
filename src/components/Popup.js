@@ -1,5 +1,4 @@
-const fade = document.querySelector(".popup__image-fade");
-
+import { fade } from "./constants.js";
 export class Popup {
   constructor(popupElements) {
     this.popup = document.querySelector(popupElements);

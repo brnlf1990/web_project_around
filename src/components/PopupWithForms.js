@@ -11,6 +11,7 @@ export class PopupWithForm extends Popup {
   _getInputValues(form) {
     const data = new FormData(form);
     const dataObject = Object.fromEntries(data.entries());
+
     return dataObject;
   }
 
