@@ -179,7 +179,9 @@ const popupChangeAvatar = new PopupWithForm((imageLink) => {
     .userAvatar(imageLink)
     .then((link) => {
       const avatarImage = document.querySelector(".profile__avatar-image");
+      imageLink.image = link.avatar;
       avatarImage.src = link.avatar;
+      console.log("index", imageLink.image);
     })
     .catch((err) => {
       console.error(err);

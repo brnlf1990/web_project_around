@@ -18,7 +18,7 @@ export class Api {
     });
   }
   userAvatar(inputValues) {
-    console.log(inputValues.image);
+    console.log("api", inputValues.image);
     return fetch(`${this._baseUrl}/users/me/avatar`, {
       method: "PATCH",
       headers: this._headers,
@@ -26,6 +26,7 @@ export class Api {
         avatar: inputValues.image,
       }),
     }).then((res) => {
+      console.log(inputValues.image);
       if (res.ok) {
         return res.json();
       }
