@@ -179,7 +179,7 @@ const popupChangeAvatar = new PopupWithForm((imageLink) => {
   api
     .userAvatar(imageLink)
     .then((link) => {
-      api.renderLoading(true); //criar outro botao para substituir por salvando...
+      api.renderLoading(true);
       userInfo.setAvatarImage(link.avatar);
     })
     .catch((err) => {
