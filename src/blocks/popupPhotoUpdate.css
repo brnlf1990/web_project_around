@@ -49,6 +49,7 @@
 }
 
 .photo-update-popup__button {
+  display: inline-block;
   background-color: #000;
   border: none;
   color: #fff;

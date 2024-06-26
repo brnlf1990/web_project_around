@@ -157,6 +157,7 @@ new FormValidator(
 const userInfo = new UserInfo({
   nameProfile: ".profile__info-name",
   aboutProfile: ".profile__info-content",
+  avatar: ".profile__avatar-image",
 });
 
 /* Chamando api*/
@@ -178,13 +179,14 @@ const popupChangeAvatar = new PopupWithForm((imageLink) => {
   api
     .userAvatar(imageLink)
     .then((link) => {
-      const avatarImage = document.querySelector(".profile__avatar-image");
-      imageLink.image = link.avatar;
-      avatarImage.src = link.avatar;
-      console.log("index", imageLink.image);
+      api.renderLoading(true); //criar outro botao para substituir por salvando...
+      userInfo.setAvatarImage(link.avatar);
     })
     .catch((err) => {
-      console.error(err);
+      console.log(err);
+    })
+    .finally(() => {
+      api.renderLoading(false);
     });
 }, ".photo-update-popup__container");
 avatarChangeButton.addEventListener("click", () => {

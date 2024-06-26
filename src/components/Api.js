@@ -1,9 +1,18 @@
 import { Promise } from "core-js";
-
 export class Api {
-  constructor({ baseUrl, headers }) {
+  constructor({ baseUrl, headers }, popupElements) {
     this._baseUrl = baseUrl;
     this._headers = headers;
+  }
+
+  renderLoading(isLoading) {
+    if (isLoading) {
+      document.querySelector(".photo-update-popup__button").textContent =
+        "Salvando...";
+    } else {
+      document.querySelector(".photo-update-popup__button").textContent =
+        "Salvar";
+    }
   }
 
   getInitialCards() {
@@ -18,7 +27,6 @@ export class Api {
     });
   }
   userAvatar(inputValues) {
-    console.log("api", inputValues.image);
     return fetch(`${this._baseUrl}/users/me/avatar`, {
       method: "PATCH",
       headers: this._headers,
@@ -26,7 +34,6 @@ export class Api {
         avatar: inputValues.image,
       }),
     }).then((res) => {
-      console.log(inputValues.image);
       if (res.ok) {
         return res.json();
       }
