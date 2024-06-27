@@ -1,10 +1,11 @@
 .templates {
+  column-gap: 17px;
   display: flex;
   flex-wrap: wrap;
-  max-width: 880px;
   margin: auto;
+  max-width: 880px;
   row-gap: 20px;
-  column-gap: 17px;
+  padding-top: 32px;
 }
 
 .templates__card {

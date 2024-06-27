@@ -15,9 +15,9 @@ export class Card extends PopupWithConfirmation {
     super(popupElements);
     this._image = data.link;
     this._name = data.name;
-    this._likes = data.likes.length;
-    this._cardId = data._id;
     this._ownerId = data.owner._id;
+    this._likes = data.likes ? data.likes.length : 0;
+    this._cardId = data._id;
     this.myId = myId;
     this._cardSelector = cardSelector;
     this._handlerCardClick = handlerCardClick;
@@ -28,7 +28,6 @@ export class Card extends PopupWithConfirmation {
     const cardElement = template
       .querySelector(this._cardSelector)
       .cloneNode(true);
-
     return cardElement;
   }
 
@@ -91,6 +90,8 @@ export class Card extends PopupWithConfirmation {
     this._element.querySelector(".templates-card__image").alt = this._name;
     this._element.querySelector(".templates__card__description").textContent =
       this._name;
+    this._element.querySelector(".templates__card-likes-count").textContent =
+      this._likes;
     this._setEventListener();
 
     return this._element;

@@ -110,17 +110,65 @@ api.getInitialCards().then((cards) => {
 const popupWithFormAdd = new PopupWithForm((inputValues) => {
   api.postNewCard(inputValues).then(() => {
     const newCard = new Card(
-      { name: inputValues.title, link: inputValues.image },
+      "c5546425fb70198d03ee20bd",
+      {
+        name: inputValues.title,
+        link: inputValues.image,
+        likes: [],
+        _id: null,
+        owner: {
+          _id: "c5546425fb70198d03ee20bd",
+        },
+      },
       {
         handlerCardClick: (imageSrc, title) => {
           popupImage.open(imageSrc, title);
           popupImage.setEventListener();
         },
+        handlerLikeClick: (card) => {
+          const isLiked = card._element
+            .querySelector(".templates__card-button")
+            .classList.contains("templates__card-button-active");
+
+          if (isLiked) {
+            api.unlikeCard(newCard._id).then((updatedCard) => {
+              card.updateLikes(updatedCard.likes.length);
+            });
+          } else {
+            api.likeCard(newCard._id).then((updatedCard) => {
+              card.updateLikes(updatedCard.likes.length);
+            });
+          }
+        },
+        handlerDeleteCard: (cardId) => {
+          const confirmationButton = document.querySelector(
+            ".card-delete-button"
+          );
+
+          document
+            .querySelector(".card-delete-form")
+            .addEventListener("submit", (event) => {
+              event.preventDefault();
+              if (event.target.contains(confirmationButton)) {
+                api.deleteCard(cardId).then(() => {
+                  newCard._element.remove();
+                  document
+                    .querySelector(".card-delete__container")
+                    .classList.remove("popup__opened");
+                  fade.classList.remove("active");
+                });
+              } else {
+                popupImage.close();
+              }
+            });
+        },
       },
       ".templates__card"
     );
+    console.log(newCard);
 
     const cardElment = newCard.generateCard();
+
     elementCard.insertBefore(cardElment, elementCard.firstChild);
   });
 }, ".add-popup__container");
