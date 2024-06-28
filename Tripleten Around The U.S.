@@ -1,4 +1,4 @@
-Tripleten Around The U.S.
+
 Projeto criado para pessoas que viajam dentro dos Estados Unidos da America, para compartilhar os melhores lugares a serem explorados no país. Aqui você pode postar uma foto, colocar o nome do local e outras pessoas podem curtir seu post. O projeto está sendo montado aos poucos, mas você pode editar seu nome e sobre você.
 
 Para esse projeto foram utilizados linguagens de programação HTML, CSS e JavaScript. Com HTML foi formado o esqueleto, desde o titulo até o popup de edição de nomes. Foi utilizado o método BEM para organização da estrutura do HTML. No CSS foram estilizados todos os campos de acordo com tamanho em que o site fica, ou seja, um layout responsivo para smartphones. Dentro do CSS, foi modificado as classes do fundo escuro e classe de popup aberto, para deixar os dois escondidos e aparecer com função escrita no JavaScript. Foi adicionado uma animação para a caixa de edição vir de cima e voltar para la após o fechamento. Isso foi adicionado deixando a caixa de edição no top e escondida, após ativação do botão ela irá aparecer de cima com com a parametros de transition e opacity.
