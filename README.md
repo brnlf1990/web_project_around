@@ -1,6 +1,6 @@
 # Tripleten Around The U.S.
 
-Projeto criado para pessoas que viajam dentro dos Estados Unidos da America, para compartilhar os melhores lugares a serem explorados no país.
+Projeto criado para pessoas que viajam dentro dos Estados Unidos da America, compartilharem os melhores lugares a serem explorados no país.
 Aqui você pode postar uma foto, colocar o nome do local e outras pessoas podem curtir seu post.
 O projeto está sendo montado aos poucos, mas você pode editar seu nome e sobre você.
 
