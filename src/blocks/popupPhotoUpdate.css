@@ -8,6 +8,7 @@
   flex-wrap: wrap;
   justify-content: space-around;
   align-content: center;
+  align-items: flex-start;
 }
 
 .photo-update-popup__container {
@@ -22,7 +23,6 @@
   width: 430px;
   z-index: 10;
   visibility: hidden;
-  align-items: flex-start;
 }
 
 .photo-update-popup__close-button {
