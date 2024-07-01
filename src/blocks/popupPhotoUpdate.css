@@ -36,12 +36,12 @@
 
 .photo-update-popup__title {
   color: #000;
-  font-family: Inter;
   font-size: 24px;
   font-style: normal;
   font-weight: 900;
   line-height: 29px;
   margin: 0;
+  align-items: flex-start;
 }
 
 .photo-update-popup__form-input {

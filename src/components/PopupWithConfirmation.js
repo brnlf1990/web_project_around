@@ -19,7 +19,6 @@ export class PopupWithConfirmation extends Popup {
   _handleEscClose() {
     document.addEventListener("keydown", (evt) => {
       if (evt.key === "Escape") {
-        console.log("entrou");
         this.closePopupWithConfirmation();
       }
     });
